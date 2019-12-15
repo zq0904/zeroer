@@ -1,0 +1,10 @@
+
+node_modules/*
+bower_components/*
+
+# The custom
+esm/*
+umd/*
+types/*
+test/*
+hook/*

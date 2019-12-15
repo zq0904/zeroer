@@ -1,0 +1,9 @@
+.bar {
+  background-color: blue;
+  .bg-tp {
+    width: 100px;
+    height: 100px;
+    background: url(../../assets/images/tp1.jpg) no-repeat left top/100% 100%;
+    transform: translate(0);
+  }
+}
