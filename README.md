@@ -1,6 +1,7 @@
 # 使用Lerna管理 zeroer项目
 ## 使用 npm run commit 方便的获取所需的commit信息
   - 常用的type类型有
+
   | type | 描述 |
   | - | - |
   | feat | 新功能 |
@@ -19,3 +20,4 @@
   2. 就算我使用lerna 也没能改变npm link 所带来的问题 （只有对于那些不需要执行命令的包 如ui包 npm link 会是好的 对于cli简直是灾难）
   3. zeroer-core 编译卡主 node_modules/core-js-pure/internals/call-with-safe-iteration-closing.js  暂时不能发包
   4. fe-z-pc.v1 npm run server 入口端口占用 虽然被catch不活了 但提示不友好
+  5. "ignoreChanges": ["fe-z-pc.v1", "zeroer-core"] 未测试
