@@ -9,13 +9,13 @@ module.exports = {
   // 3.压缩js
   mode: isPrd ? 'production' : 'development',
   devtool: isPrd ? 'hidden-source-map' : 'cheap-module-eval-source-map', // eval版本 不会单独提取.map文件 提高重构效率
-  entry: `${srcPath}/index.js`,
+  entry: `${srcPath}/index.tsx`,
   output: {
     path: distPath,
     filename: `${projectVersion}/js/[name]${isPrd ? '.[contenthash:7]' : ''}.js`,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.scss', '.sass'], // 省略后缀
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'], // 省略后缀
     // mainFiles: ['index'], // import from './目录' 的解析方式 寻找目录下index 会尝试extensions
     alias: { // 别名
       '@': srcPath,

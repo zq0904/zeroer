@@ -14,8 +14,8 @@ module.exports = () => ({
   ],
   "plugins": [
     ["@babel/plugin-transform-runtime", { "corejs": false }], // 只是想使用 Helper aliasing
+    ["@babel/plugin-proposal-decorators", { "legacy": true }], // 装饰器语法支持 必须在@babel/plugin-proposal-class-properties之前使用
     ["@babel/plugin-proposal-class-properties", { "loose": true }], // class属性支持
-    ["@babel/plugin-proposal-decorators", { "legacy": true }], // 装饰器语法支持
     ["@babel/plugin-syntax-dynamic-import"], // import() 语法支持 code-splitting
     ["styled-jsx/babel", { // styled-jsx语法支持
       "plugins": [

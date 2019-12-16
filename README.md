@@ -15,9 +15,11 @@
   | build | 影响构建系统或外部依赖项的更改(例如作用域:gulp、broccoli、npm) |
   | chore | 不修改src或测试文件的其他更改 |
   | revert | 返回先前的提交 |
+## 总结
+  1. npm link | lerna 的“软连接”复用形式 针对ui包 应该是比较好用的 cli包还是将这个包发布调试比较好（执行命令文件找不到）
 ## 遗留问题
   1. npx lerna bootstrap 不能使用hoist参数 // zeorer-core 中 rollup rollup-plugin-node-resolve模块解析算法有问题 [参见](https://github.com/lerna/lerna/blob/master/doc/hoist.md)
-  2. 就算我使用lerna 也没能改变npm link 所带来的问题 （只有对于那些不需要执行命令的包 如ui包 npm link 会是好的 对于cli简直是灾难）
   3. zeroer-core 编译卡主 node_modules/core-js-pure/internals/call-with-safe-iteration-closing.js  暂时不能发包
   4. fe-z-pc.v1 npm run server 入口端口占用 虽然被catch不活了 但提示不友好
   5. "ignoreChanges": ["fe-z-pc.v1", "zeroer-core"] 未测试
+  6. execa 目前已经更新到 3.4 了

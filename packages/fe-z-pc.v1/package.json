@@ -17,7 +17,7 @@
   "author": "qixiaoqi",
   "license": "ISC",
   "devDependencies": {
-    "zeroer-cli": "0.0.1-beta.0"
+    "zeroer-cli": "0.0.2-alpha.0"
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.7.4",

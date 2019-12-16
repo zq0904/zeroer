@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
-import './style'
+import './index.scss'
 
 class Header extends Component {
   static propTypes = {
-    height: PropTypes.number.isRequired
+    height: PropTypes.number
   }
   static defaultProps = {
     height: 30

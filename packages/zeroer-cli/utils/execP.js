@@ -9,5 +9,5 @@ module.exports = (command, options = {}) => execa.command(command, {
   stdout: 'inherit', // inherit 运行命令的输出直接打印在控制台 默认是pipe 不直接在控制台输出
   ...options
 }).catch(err => {
-  log(err, 'red')
+  log(`执行命令：${command} 时出错\n${err}`, 'red')
 })
