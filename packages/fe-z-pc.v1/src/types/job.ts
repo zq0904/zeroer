@@ -1,4 +1,13 @@
-export interface ListItem {
+// 创建职位提交的form
+export interface JobCreateForm {
+  jobName: string; // 职位姓名
+  employedAge: number; // 从业年龄
+  language: string[]; // 要求语言
+  commissionedId: string; // 委托证明材料
+}
+
+// 职位列表listitem
+export interface JobListItem {
   resIdEncode: string; // 加密的简历id
   cPhoto: string; // 经理人头像
   resTitle: string; // 目前职位名称

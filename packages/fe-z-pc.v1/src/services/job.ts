@@ -1,14 +1,9 @@
-import axios from 'axios'
-import { EXAMPLEJOB } from './api'
-import { Response } from '@/types'
-import { ListItem } from '@/types/example'
+import { axios } from '@/common/ts'
+import { SAVEJOBINFO, GETJOBLIST } from './api'
+import { JobCreateForm, JobListItem } from '@/types'
 
-// 获取职位信息
-interface GetJobInfo {
-  (req: { jobId: string }): Promise<
-    Response<{
-      recommendList: ListItem[];
-    }>
-  >
-}
-export const getJobInfo: GetJobInfo = req => axios.post(EXAMPLEJOB, req)
+// 保存职位信息
+export const saveJobInfo = (reqData: JobCreateForm) => axios.post<{}>(SAVEJOBINFO, reqData)
+
+// 获取职位列表信息
+export const getJobList = (reqData: { jobId: string }) => axios.post<{ recommendList: JobListItem[]; }>(GETJOBLIST, reqData)

@@ -1,13 +1,13 @@
 import React, { StrictMode } from 'react'
 import { HashRouter as Router } from 'react-router-dom'
 import Layout from '@/components/Layout'
-import RouterView from './router'
+import RootRouterView from './router'
 
 const App = () => (
   <StrictMode>
     <Router>
       <Layout>
-        <RouterView />
+        <RootRouterView />
       </Layout>
     </Router>
   </StrictMode>
