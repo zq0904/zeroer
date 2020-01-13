@@ -1,6 +1,6 @@
 import { getTimeStamp, Days } from './lib'
 
-const set = (name: string, val: string, days: Days | false = false, path?: string, domain?: string, secure: boolean = false) => {
+const set = (name: string, val: string, days: Days | false = false, path?: string, domain?: string, secure = false) => {
   let expires: string | boolean
   if (days === false) {
     expires = false // 过期时间为 session 当前会话期间（浏览器完全关闭）
@@ -23,7 +23,7 @@ const get = (name: string) => {
 }
 
 // 删除 具有 path domain secure 的cookie需要指定
-const del = (name: string, path?: string, domain?: string, secure: boolean = false) => {
+const del = (name: string, path?: string, domain?: string, secure = false) => {
   if (get(name) !== null) {
     set(name, '', -1, path, domain, secure)
   }

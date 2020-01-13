@@ -1,4 +1,4 @@
-## rollup ts 构建 库 [插件列表](https://github.com/rollup/awesome)
+## rollup ts 构建 核心库 [插件列表](https://github.com/rollup/awesome)
 ## 命令
 ```
   npm run dev // 开发模式 (使用browsersync 支持proxy中间件)
@@ -33,12 +33,12 @@
 
   对 react组件 .tsx .less 支持
 ```
-## 遗留问题
+## TODO
 ```
   uA 判断的完善 // 移动端未测试
-
+  合并函数 comp...
   单元测试 集成部署测试
   覆盖率
-
+  hook 目录的取舍问题 引入lerna后 我仍希望发正式版的包必须是主干！
   tool工具抽取
 ```

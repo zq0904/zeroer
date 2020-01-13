@@ -1,6 +1,6 @@
-@import './default.less';
+@import '../common/style/default.scss';
 
-.@{zero-prefix}-core-btn {
+.#{$zero-prefix}-btn {
   padding: 2px;
   color: #fff;
   &-primary {

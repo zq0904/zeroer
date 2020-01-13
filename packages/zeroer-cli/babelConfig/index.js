@@ -17,6 +17,9 @@ module.exports = () => ({
     ["@babel/plugin-proposal-decorators", { "legacy": true }], // 装饰器语法支持 必须在@babel/plugin-proposal-class-properties之前使用
     ["@babel/plugin-proposal-class-properties", { "loose": true }], // class属性支持
     ["@babel/plugin-syntax-dynamic-import"], // import() 语法支持 code-splitting
+    // 以后空合并和可选链将会在直接在预设环境中 @babel/preset-env (参考)[https://github.com/babel/babel/issues/10690]
+    "@babel/plugin-proposal-nullish-coalescing-operator", // 空合并
+    "@babel/plugin-proposal-optional-chaining", // 可选链
     ["styled-jsx/babel", { // styled-jsx语法支持
       "plugins": [
         "styled-jsx-plugin-postcss",

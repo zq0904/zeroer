@@ -1,8 +1,8 @@
 import { eslint } from 'rollup-plugin-eslint'
 import clear from 'rollup-plugin-clear' // 清除目录
-import json from 'rollup-plugin-json' // 支持加载json文件
-import nodeResolve from 'rollup-plugin-node-resolve' // 定位模块 便于正确加载使用node_modules下三方模块
-import commonjs from 'rollup-plugin-commonjs' // 使rollup支持cjs模块 默认只支持ES6模块
+import json from '@rollup/plugin-json' // 一个将.json文件转换为ES6模块
+import resolve from '@rollup/plugin-node-resolve' // 它使用Node解析算法来定位模块，以便在node_modules
+import commonjs from '@rollup/plugin-commonjs' // 将CommonJS模块转换为ES6 rollup默认只支持ES6模块
 import postcss from 'rollup-plugin-postcss' // npm i -D rollup-plugin-postcss less
 import autoprefixer from 'autoprefixer' // 根据browserslist 去添加前缀（必须配置browserslist）
 import babel from 'rollup-plugin-babel'
@@ -50,11 +50,12 @@ const rollupConfig = {
       watch: !isProduction, // 当rollup在—w模式下重新编译时
     }),
     json(),
-    nodeResolve({
+    resolve({
       extensions // 也需要加上解析.ts
     }),
     commonjs({ include: '**' }),
     postcss({
+      extensions: ['.css', '.scss', '.sass'],
       plugins: [autoprefixer],
       extract: isProduction, // 提取css
       minimize: isProduction, // 压缩css
