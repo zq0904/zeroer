@@ -9,6 +9,6 @@ module.exports = {
     "@babel/plugin-proposal-nullish-coalescing-operator", // 空合并
     "@babel/plugin-proposal-optional-chaining", // 可选链
     // ["@babel/plugin-proposal-export-default-from"], // export d from './module' (https://github.com/tc39/proposal-export-default-from)
-    // ["@babel/plugin-proposal-export-namespace-from"] // export * as all from './module' (https://github.com/tc39/proposal-export-ns-from)
+    // ["@babel/plugin-proposal-export-namespace-from"] // export * as all from './module' (https://github.com/tc39/proposal-export-ns-from) // ts 3.8将支持
   ]
 }

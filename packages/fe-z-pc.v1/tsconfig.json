@@ -29,7 +29,7 @@
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
-    // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
+    "noImplicitThis": true,                   /* 使用隐含的“any”类型在“this”表达式上引发错误。 */
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
 
     /* Additional Checks */

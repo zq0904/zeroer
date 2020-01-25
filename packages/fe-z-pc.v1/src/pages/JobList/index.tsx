@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
+import { RouteConfigComponentProps } from '@/router'
+import { InternalProps } from '@/common/ts'
 import { observable, action } from 'mobx'
 import { StoreContext } from '@/store'
 import { Observer } from 'mobx-react'
+import Title from '@/components/Title'
 import './index.scss'
 import logo from '@/common/images/logo.svg'
 import tp from './images/tp.jpg'
 import music from '@/common/medias/music.mp3'
 
-interface JobListProps {}
+const defaultProps = {
+  info: '信息',
+}
+
+interface JobListProps extends RouteConfigComponentProps {
+  info?: string;
+}
+
 interface JobListState {
   toggle: boolean;
 }
 
-class JobList extends Component<JobListProps, JobListState> {
-  readonly state = {
+class JobList extends Component<InternalProps<typeof defaultProps, JobListProps>, JobListState> {
+  static defaultProps = defaultProps
+  // 一但使用类属性语法 会覆盖掉state的默认的只读类型 所以一般在写类属性语法 会强制加上只读类型 提供友好体验
+  state: Readonly<JobListState> = {
     toggle: false
   }
   @observable
@@ -21,8 +33,7 @@ class JobList extends Component<JobListProps, JobListState> {
   @action.bound
   handleToggle = () => this.toggle = !this.toggle
   componentDidMount() {
-    // this.state.toggle = true // ?
-    console.log('JobList组件 componentDidMount', this)
+    console.log('JobList组件 componentDidMount')
   }
   render() {
     return (
@@ -30,6 +41,7 @@ class JobList extends Component<JobListProps, JobListState> {
         {({ jobListStore }) => (
           <Observer>{() => (
             <div className="job-list">
+              <Title>职位列表</Title>
               <h4>JobList 组件</h4>
               <hr/>
               {/* 测试公共资源 */}

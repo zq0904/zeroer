@@ -4,6 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
+    "start": "npm run server",
+    "dev": "npm run server",
     "server": "zeroer-cli server",
     "build:dev": "zeroer-cli build:dev",
     "build:prd": "zeroer-cli build:prd",

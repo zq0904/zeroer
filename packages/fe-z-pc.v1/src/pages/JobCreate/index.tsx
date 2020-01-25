@@ -1,11 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
+import { RouteConfigComponentProps, renderRoutes } from '@/router'
 import { useObserver } from 'mobx-react'
 import { useStore } from '@/store'
 import { savePicture } from '@/services'
+import { InternalProps, ExternalProps } from '@/common/ts'
+import Title from '@/components/Title'
 import CheckboxGroup from './CheckboxGroup'
 import './index.scss'
 
-const JobCreate = () => {
+const defaultProps = {
+  a: '1',
+}
+interface JobCreateProps extends RouteConfigComponentProps {
+  a?: string;
+}
+
+const JobCreate: FC<InternalProps<typeof defaultProps, JobCreateProps>> = ({ a, route }) => {
   const { jobCreateStore } = useStore()
   const handleChangeCheckbox = (checkedValues: string[]) => jobCreateStore.setStore({ language: checkedValues })
   const hanldeChangeFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +34,7 @@ const JobCreate = () => {
   }, [])
   return useObserver(() => (
     <div className="job-create">
+      <Title>创建职位</Title>
       <h4>JobCreate 组件</h4>
       <p>
         职位名称：
@@ -62,8 +73,15 @@ const JobCreate = () => {
         { jobCreateStore.commissionedId && <img src={jobCreateStore.commissionedId} alt=""/> }
       </p>
       <button type="button" onClick={jobCreateStore.saveJobInfo}>提交信息</button>
+      <hr/>
+      <h4>2级路由</h4>
+      {
+        renderRoutes(route?.routes ?? [])
+      }
     </div>
   ))
 }
 
-export default JobCreate
+JobCreate.defaultProps = defaultProps
+
+export default JobCreate as FC<ExternalProps<typeof defaultProps, JobCreateProps>>

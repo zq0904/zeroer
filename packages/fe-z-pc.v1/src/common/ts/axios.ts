@@ -5,8 +5,16 @@ import qs from 'qs'
 
 type Response<T> = {
   data: T;
-  flag: 0 | 1;
-  msg?: string;
+  flag: 1;
+}
+
+type ResponseControl<T, U = any> = { data: T; flag: 1; } | { data: U; flag: 0; msg: string; }
+
+interface AxiosRequestConfigControl extends AxiosRequestConfig  {
+  headers: {
+    control: true;
+    [key: string]: any;
+  }
 }
 
 // 重写AxiosInstance
@@ -20,9 +28,13 @@ interface AxiosInstance {
   };
   getUri(config?: AxiosRequestConfig): string;
   request<T = any, R = Response<T>> (config: AxiosRequestConfig): Promise<R>;
+  // 重载
+  get<T = any, U = {}, R = ResponseControl<T, U>>(url: string, config: AxiosRequestConfigControl): Promise<R>;
   get<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
   delete<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
   head<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
+  // 重载
+  post<T = any, U = {}, R = ResponseControl<T, U>>(url: string, data: any, config: AxiosRequestConfigControl): Promise<R>;
   post<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
   put<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
   patch<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
