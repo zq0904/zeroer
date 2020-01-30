@@ -91,8 +91,8 @@ axios.interceptors.response.use(res => { // 状态码2xx
   return Promise.resolve(res.data)
 }, err => { // 状态码非2xx
   // xhr请求导致的重定向
-  const RedirectAddress = err.response.headers?.['Redirect-Address']
-  if (err.response.status === 302 && RedirectAddress) return window.location.href = RedirectAddress
+  const RedirectAddress = err.response?.headers?.['Redirect-Address']
+  if (err.response?.status === 302 && RedirectAddress) return window.location.href = RedirectAddress
   return Promise.reject(err)
 })
 

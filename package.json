@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "install": "npx lerna bootstrap",
     "commit": "git-cz"
   },
   "devDependencies": {
