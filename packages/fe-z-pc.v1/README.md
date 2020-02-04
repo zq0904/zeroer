@@ -1,14 +1,8 @@
-# react cli  
+# react cli 
 ## TODO
 ```
-  引入zeroer-core 核心库
-
   引入eslint相关
-  抽离mock相关 到 zeroer-cli
-
-  Link to 统一抽离
-  router RootRouterView 形式 不是很好 改成config 配置的模式 同 vue-router 路由守卫
-
-  单页面应用 希望参考create-react-app
-  多页面应用参考 希望参考next
+  npm 加一个命令 用于 清除 node../.catch下的缓存 有的时候 eslint bable 这个缓存很烦人
+  单页面应用 的 目录设计 希望参考 create-react-app | vue-cli
+  多页面应用参考 的 目录设计 希望参考 next
 ```

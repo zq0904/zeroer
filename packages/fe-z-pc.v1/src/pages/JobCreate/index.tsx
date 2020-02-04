@@ -9,7 +9,7 @@ import CheckboxGroup from './CheckboxGroup'
 import './index.scss'
 
 const defaultProps = {
-  a: '1',
+  a: '1'
 }
 interface JobCreateProps extends RouteConfigComponentProps {
   a?: string;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import BaseStore from '@/store/base'
 import { observable, computed, action, runInAction, flow, autorun, when, reaction } from 'mobx'
 import { JobListItem } from '@/types'
@@ -7,9 +8,10 @@ class JobListStore extends BaseStore<JobListStore> {
   @observable num = 0
   @observable price = 100
   @computed // 计算属性 依赖缓存
-  get totalPrice() {
+  get totalPrice () {
     return this.num * this.price
   }
+
   @observable jobId = ''
   @observable jobList: JobListItem[] = []
   // action中只能是 同步操作更改 可观测的数据
@@ -21,9 +23,10 @@ class JobListStore extends BaseStore<JobListStore> {
       // 2.声明一个立即调用的action
       // action(() => this.num ++)()
       // 3.使用runInAction
-      runInAction(() => this.num ++)
+      runInAction(() => this.num++)
     }, 500)
   }
+
   // flow 只能作为函数使用 不能作为装饰器使用 由于使用Generator必须bind(this) 好处：异步部分不需要手动操作包装runInAction 只需要yield阻断即可
   @action.bound
   getJobList1 = flow(function * (this: JobListStore) {
@@ -34,6 +37,7 @@ class JobListStore extends BaseStore<JobListStore> {
       console.log(err)
     }
   })
+
   @action.bound
   async getJobList2 () {
     try {

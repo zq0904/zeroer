@@ -9,7 +9,7 @@ const passthroughCommandLineArgs = `--COMMANDLINEARGS ${JSON.stringify(minimist(
 
 const command = [
   'ts-node',
-  `-P ${path.resolve(__dirname, '../tsconfig.json')}`,
+  `--project ${path.resolve(__dirname, '../tsconfig.json')}`,
   path.resolve(__dirname, '../src/index.ts'),
   passthroughCommandLineArgs,
 ].join(' ')

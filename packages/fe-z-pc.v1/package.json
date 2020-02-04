@@ -1,6 +1,6 @@
 {
   "name": "fe-z-pc.v1",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.4-beta.1",
   "description": "",
   "main": "",
   "scripts": {
@@ -10,17 +10,22 @@
     "build:dev": "zeroer-cli build:dev",
     "build:prd": "zeroer-cli build:prd",
     "dll": "zeroer-cli dll",
-    "mock": "zeroer-cli mock",
     "analyzer:dev": "zeroer-cli analyzer:dev",
     "analyzer:prd": "zeroer-cli analyzer:prd",
+    "mock": "zeroer-cli mock",
     "test:dev": "cd ./dist-dev && hs -o -p 3000 -c-1",
     "test:prd": "cd ./dist-prd && hs -o -p 3000 -c-1"
   },
   "keywords": [],
   "author": "zhaoqi",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zq0904/zeroer.git",
+    "directory": "packages/fe-z-pc.v1"
+  },
   "devDependencies": {
-    "zeroer-cli": "0.0.4-beta.0"
+    "zeroer-cli": "0.0.4-beta.1"
   },
   "dependencies": {
     "@types/classnames": "^2.2.9",

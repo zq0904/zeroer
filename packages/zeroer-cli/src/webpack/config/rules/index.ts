@@ -4,7 +4,7 @@ import { paths, config, resolve } from '../../../utils'
 
 const name = '[name].[contenthash:7].[ext]'
 
-const rules = [
+const rules = [ // 双倒序规则
   {
     test: /\.(t|j)sx?$/,
     exclude: /(node_modules|bower_components)/,
@@ -13,9 +13,23 @@ const rules = [
       loader: 'babel-loader',
       // TODO 应该开启缓存
       // options: {
-      //   configFile: resolve(paths.cli.src, 'babel'), // 手动指定配置文件
+      //   configFile: resolve(paths.cli.root, 'babel'), // 手动指定配置文件
       //   cacheDirectory: true, // 在node_modules/.cache/babel-loader缓存
       // }
+    },
+  },
+  {
+    enforce: ('pre' as 'pre'), // 优先级最高
+    test: /\.(t|j)sx?$/,
+    exclude: /(node_modules|bower_components)/,
+    include: paths.project.src,
+    use: {
+      loader: 'eslint-loader',
+      options: {
+        cache: true,
+        failOnError: true, // eslint错误 将导致构建失败
+        failOnWarning: true, // eslint警告 将导致构建失败
+      }
     },
   },
   style,

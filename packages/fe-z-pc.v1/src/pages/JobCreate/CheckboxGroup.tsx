@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 interface CheckboxGroupProps {
   name: string;
-  options: Array<{ label: string, value: string, checked: boolean }>;
+  options: Array<{ label: string; value: string; checked: boolean }>;
   onChange: (checkedValues: string[]) => void;
 }
 
@@ -25,7 +25,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ name, options, onChange }
               value={value}
               checked={checked}
               onChange={e => handleChange(value, e)}
-            /> 
+            />
             { label }
           </span>
         ))

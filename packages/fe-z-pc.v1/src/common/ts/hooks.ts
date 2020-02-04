@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState, EffectCallback, Dispatch } from 'react'
 
 export const useDidMount = (fn: () => any) => {
@@ -6,8 +7,8 @@ export const useDidMount = (fn: () => any) => {
   }, [])
 }
 
-export const useDidUpdate = (fn: () => any, deps: ReadonlyArray<any>) => {
-  let flag = useRef(false)
+export const useDidUpdate = (fn: () => any, deps?: React.DependencyList) => {
+  const flag = useRef(false)
   useEffect(() => {
     flag.current ? fn() : flag.current = true
   }, deps)

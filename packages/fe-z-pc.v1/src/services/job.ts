@@ -6,4 +6,4 @@ import { JobCreateForm, JobListItem } from '@/types'
 export const saveJobInfo = (reqData: JobCreateForm) => axios.post<{}>(SAVEJOBINFO, reqData)
 
 // 获取职位列表信息
-export const getJobList = (reqData: { jobId: string }) => axios.post<{ recommendList: JobListItem[]; }>(GETJOBLIST, reqData)
+export const getJobList = (reqData: { jobId: string }) => axios.post<{ recommendList: JobListItem[] }>(GETJOBLIST, reqData)

@@ -2,14 +2,14 @@
 // typescript-eslint 的一些ts规则 https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
 module.exports = {
   root: true, // ESLint将停止查找父文件夹
-  parser: '@typescript-eslint/parser', // 指定解析器 对ts校验 npm i -D @typescript-eslint/parser
-  plugins: ['@typescript-eslint', 'react'], // npm i -D @typescript-eslint/eslint-plugin eslint-plugin-react
   env: {
     browser: true, // 浏览器全局变量
     node: true, // Node.js全局变量和Node.js作用域
     commonjs: true, // CommonJS全局变量和CommonJS作用域
     es6: true, // 启用除模块以外的所有ECMAScript 6功能
   },
+  parser: '@typescript-eslint/parser', // 指定解析器 对ts校验 npm i -D @typescript-eslint/parser
+  plugins: ['react', '@typescript-eslint'], // npm i -D eslint-plugin-react @typescript-eslint/eslint-plugin
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -24,11 +24,11 @@ module.exports = {
     'import/ignore': ['\.(scss|less|css)$'] // ?
   },
   parserOptions: { // 指定ESLint可以解析JSX语法
-    ecmaVersion: 2019,
-    sourceType: 'module',
     ecmaFeatures: { // 启用JSX支持
       jsx: true
-    }
+    },
+    ecmaVersion: 2019,
+    sourceType: 'module',
   },
   rules: {
     'no-empty': 0, // 禁止空块语句 try {} catch(err) {}

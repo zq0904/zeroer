@@ -1,7 +1,7 @@
 const data = {
   '/checklogin.json': {
     flag: 0,
-    msg: '登录已过期，请尝试刷新页面重新登录',
+    msg: '登录已过期，请尝试刷新页面重新登录'
   },
   '/job/savepicture.json': {
     flag: 1,
@@ -28,7 +28,7 @@ const data = {
           resEduLevelCode: '4556', // 学历code
           resEduLevelName: '学历名称', // 学历名称
           resWorkYearAge: 5, // 工作年限
-          resCompany: '目前所在公司名称', // 目前所在公司名称
+          resCompany: '目前所在公司名称' // 目前所在公司名称
         }
       ]
     }

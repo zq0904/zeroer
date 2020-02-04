@@ -11,7 +11,7 @@ import tp from './images/tp.jpg'
 import music from '@/common/medias/music.mp3'
 
 const defaultProps = {
-  info: '信息',
+  info: '信息'
 }
 
 interface JobListProps extends RouteConfigComponentProps {
@@ -28,14 +28,18 @@ class JobList extends Component<InternalProps<typeof defaultProps, JobListProps>
   state: Readonly<JobListState> = {
     toggle: false
   }
+
   @observable
   toggle = false
+
   @action.bound
   handleToggle = () => this.toggle = !this.toggle
-  componentDidMount() {
+
+  componentDidMount () {
     console.log('JobList组件 componentDidMount')
   }
-  render() {
+
+  render () {
     return (
       <StoreContext.Consumer>
         {({ jobListStore }) => (

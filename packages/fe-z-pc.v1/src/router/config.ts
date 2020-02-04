@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { lazy } from 'react'
 import { RouteConfig } from './renderRoutes'
 import { PATH_JOB_CREATE, PATH_JOB_LIST } from './path'
@@ -25,7 +26,7 @@ const rootRoutes: RouteConfig[] = [
   },
   {
     path: PATH_JOB_LIST,
-    component: JobList,
+    component: JobList
   }
 ]
 
@@ -33,7 +34,7 @@ interface BeforeEach {
   (
     to: Location,
     from: Location,
-    next: (arg?: false | Path | LocationDescriptorObject & { replace?: boolean; }) => void
+    next: (arg?: false | Path | LocationDescriptorObject & { replace?: boolean }) => void
   ): void;
 }
 
@@ -51,5 +52,5 @@ const beforeEach: BeforeEach = (to, from, next) => {
 
 export {
   rootRoutes,
-  beforeEach,
+  beforeEach
 }

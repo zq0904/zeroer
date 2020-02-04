@@ -12,8 +12,8 @@ const Depth: FC = (props) => {
           <Intercept>
             { props.children }
           </Intercept>
-        ) :
-        props.children
+        )
+          : props.children
       }
     </Dep.Provider>
   )

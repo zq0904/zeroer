@@ -65,6 +65,11 @@
   },
   "keywords": [],
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zq0904/zeroer.git",
+    "directory": "packages/zeroer-core"
+  },
   "browserslist": [
     "last 2 version",
     "Firefox ESR",

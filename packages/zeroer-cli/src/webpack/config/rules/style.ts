@@ -17,7 +17,7 @@ const style = {
       loader: 'postcss-loader',
       // options: {
       //   config: {
-      //     path: resolve(paths.cli.src, 'postcss') // 指定配置文件“目录” 目录中必须包含如.postcssrc.js标准可识别文件名称 而非index.js
+      //     path: resolve(paths.cli.root, 'postcss') // 指定配置文件“目录” 目录中必须包含如.postcssrc.js标准可识别文件名称 而非index.js
       //   },
       // }
     },

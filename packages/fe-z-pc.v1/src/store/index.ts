@@ -8,7 +8,7 @@ configure({ enforceActions: 'observed' }) // 严格模式 性能优化
 class RootStore {
   jobCreateStore: JobCreateStore
   jobListStore: JobListStore
-  constructor() {
+  constructor () {
     this.jobCreateStore = new JobCreateStore(this)
     this.jobListStore = new JobListStore(this)
   }

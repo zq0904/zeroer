@@ -9,7 +9,7 @@ const defaultProps = {
 }
 
 interface Props extends RouteComponentProps {
-  height?: number
+  height?: number;
 }
 
 const Header: FC<InternalProps<typeof defaultProps, Props>> = ({ height }) => (

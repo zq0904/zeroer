@@ -9,4 +9,3 @@ import '@/common/styles/index.scss'
 import '@/common/fonts/iconfont.css'
 
 ReactDOM.render(<App />, document.getElementById('app'))
- 

@@ -8,13 +8,13 @@ type Response<T> = {
   flag: 1;
 }
 
-type ResponseControl<T, U = any> = { data: T; flag: 1; } | { data: U; flag: 0; msg: string; }
+type ResponseControl<T, U = any> = { data: T; flag: 1 } | { data: U; flag: 0; msg: string }
 
-interface AxiosRequestConfigControl extends AxiosRequestConfig  {
+interface AxiosRequestConfigControl extends AxiosRequestConfig {
   headers: {
     control: true;
     [key: string]: any;
-  }
+  };
 }
 
 // 重写AxiosInstance
@@ -54,14 +54,14 @@ const axios: AxiosInstance = sourceAxios.create({
   withCredentials: true, // 跨域携带cookie
   headers: {
     // 'Content-Type': 'application/x-www-form-urlencoded',
-    'X-Requested-With': 'XMLHttpRequest', // 就是个自定义的头标 后端可以根据这个字段标识该请求是ajax
-  },
+    'X-Requested-With': 'XMLHttpRequest' // 就是个自定义的头标 后端可以根据这个字段标识该请求是ajax
+  }
   // 如果设置了transformRequest或interceptors.request Content-Type默认就是 application/x-www-form-urlencoded
   // transformRequest: [function (data, headers) {
   //   if (!data || data instanceof FormData) return data
   //   if (isToJS) data = toJS(data, { recurseEverything: true })
   //   return qs.stringify(data, {
-  //     arrayFormat: 'indices', // { a: [1, 2] } indices a[1] brackets a[]=1&a[]=2 
+  //     arrayFormat: 'indices', // { a: [1, 2] } indices a[1] brackets a[]=1&a[]=2
   //     allowDots: true, // { a: { b: 2 } } true a.b=2 false a[b]=2
   //     skipNulls: true, // { a: null } true 不包含这个字段 false a: ''
   //   })
@@ -73,11 +73,11 @@ axios.interceptors.request.use(req => {
   if (!req.data || req.data instanceof FormData) return req
   if (isToJS) req.data = toJS(req.data, { recurseEverything: true })
   req.data = qs.stringify(req.data, {
-    arrayFormat: 'indices', // { a: [1, 2] } indices a[1] brackets a[]=1&a[]=2 
+    arrayFormat: 'indices', // { a: [1, 2] } indices a[1] brackets a[]=1&a[]=2
     allowDots: true, // { a: { b: 2 } } true a.b=2 false a[b]=2
-    skipNulls: true, // { a: null } true 不包含这个字段 false a: ''
+    skipNulls: true // { a: null } true 不包含这个字段 false a: ''
   })
-  return req
+  return req
 }, err => {
   return Promise.reject(err)
 })
