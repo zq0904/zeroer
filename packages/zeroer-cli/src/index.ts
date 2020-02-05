@@ -19,8 +19,8 @@ switch (commandLineArgs._[0]) {
       'nodemon',
       `-w ${paths.project.root}/${commandLineArgs.project}`,
       `-w ${paths.project.src}/mock/data.ts`,
-      '--exec ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      '--exec',
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.src}/mock/index.ts`,
       mockPassthroughCommandLineArgs
     ].join(' '))
@@ -32,8 +32,7 @@ switch (commandLineArgs._[0]) {
     log('正在启动 开发服务器...')
     execA([
       'cross-env NODE_ENV=development',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/server.ts`,
       passthroughCommandLineArgs
     ].join(' '))
@@ -42,8 +41,7 @@ switch (commandLineArgs._[0]) {
     log('正在构建 dev版本...')
     execA([
       'cross-env NODE_ENV=development',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/build.ts`,
       passthroughCommandLineArgs
     ].join(' '))
@@ -52,8 +50,7 @@ switch (commandLineArgs._[0]) {
     log('正在构建 prd版本...')
     execA([
       'cross-env NODE_ENV=production',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/build.ts`,
       passthroughCommandLineArgs
     ].join(' '))
@@ -64,15 +61,13 @@ switch (commandLineArgs._[0]) {
     fs.emptyDirSync(paths.project.dll)
     execA([
       'cross-env NODE_ENV=development',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/dll.ts`,
       passthroughCommandLineArgs
     ].join(' '))
     execA([
       'cross-env NODE_ENV=production',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/dll.ts`,
       passthroughCommandLineArgs
     ].join(' '))
@@ -81,8 +76,7 @@ switch (commandLineArgs._[0]) {
     log('正在启动 dev分析器...')
     execA([
       'cross-env NODE_ENV=development',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/analyzer.ts`,
       passthroughCommandLineArgs
     ].join(' '))
@@ -91,16 +85,14 @@ switch (commandLineArgs._[0]) {
     log('正在启动 prd分析器...')
     execA([
       'cross-env NODE_ENV=production',
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.webpack}/analyzer.ts`,
       passthroughCommandLineArgs
     ].join(' '))
     break
   case 'test':
     execA([
-      'ts-node',
-      `--project ${paths.cli.root}/tsconfig.json`,
+      `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,
       `${paths.cli.src}/test/index.ts`,
       passthroughCommandLineArgs
     ].join(' '))
