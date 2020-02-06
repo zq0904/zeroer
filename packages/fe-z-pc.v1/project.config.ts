@@ -1,4 +1,5 @@
 /* eslint-disable semi */
+
 /*
   项目的配置文件
   1. 使用ts文件作为配置文件 只想使用ts的类型校验 配置文件应该是静态的如.json
@@ -12,7 +13,7 @@ const config = {
   },
   mock: {
     host: '0.0.0.0',
-    port: 3001
+    port: 3000
   },
   devServer: {
     open: true,

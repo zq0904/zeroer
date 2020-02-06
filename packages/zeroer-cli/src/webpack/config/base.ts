@@ -2,13 +2,14 @@ import Webpack from 'webpack'
 import rules from './rules'
 import plugins from './plugins'
 import { isPrd, paths, config } from '../../utils'
+import { NODE_ENV } from '../../types'
 
 const base: Webpack.Configuration = {
   // production模式自带的优化
   // 1.默认开启 tree shaking (依赖于import export 静态语法)
   // 2.scope hoisting 分析模块之间的依赖关系 (依赖于import export 静态语法)
   // 3.压缩js
-  mode: isPrd ? 'production' : 'development',
+  mode: isPrd ? NODE_ENV.PRODUCTION : NODE_ENV.DEVELOPMENT,
   devtool: isPrd ? 'hidden-source-map' : 'cheap-module-eval-source-map', // eval版本 不会单独提取.map文件 提高重构效率
   entry: `${paths.project.src}/index.tsx`,
   output: {

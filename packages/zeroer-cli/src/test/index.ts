@@ -1,3 +1,3 @@
-import { parse } from '@babel/parser'
+// import { parse } from '@babel/parser'
 
-console.log(parse)
+console.log('run 测试文件')

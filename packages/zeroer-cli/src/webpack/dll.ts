@@ -1,6 +1,7 @@
 import Webpack from 'webpack'
 import { isPrd, config, paths } from '../utils'
 import run from './run'
+import { NODE_ENV } from '../types'
 
 // https://github.com/webpack/webpack/tree/master/examples/dll
 // 1.会将依赖打包成一个全局函数 2.生成相应的清单文件 提供给Webpack.DllReferencePlugin映射依赖项
@@ -8,7 +9,7 @@ import run from './run'
 // 对比 externals 外控者 选项 只有在需要时单独打包 不会浪费每次打包速度 请求文件的个数减少 暴露的全局变量减少
 
 const dll: Webpack.Configuration = {
-  mode: isPrd ? 'production' : 'development',
+  mode: isPrd ? NODE_ENV.PRODUCTION : NODE_ENV.DEVELOPMENT,
   entry: config['dll-entry'], // entry入口所引用的 vue react包 node_modules包中根据环境变量process.env.NODE_ENV 选用了生产还是开发版本 我们引入包时不用区分
   output: {
     path: paths.project.dll,
