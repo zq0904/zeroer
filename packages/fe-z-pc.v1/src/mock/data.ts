@@ -1,4 +1,10 @@
-const data = {
+import { ResponseControl } from '@/types'
+
+interface Data {
+  [s: string]: ResponseControl
+}
+
+const data: Data = {
   '/checklogin.json': {
     flag: 0,
     msg: '登录已过期，请尝试刷新页面重新登录'

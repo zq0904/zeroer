@@ -9,7 +9,8 @@ import { ObjectProperty } from '@babel/types'
 
 const modifyProjectConfig = async (strs: string, val: any) => {
   const res = await fse.readFile(`${paths.project.root}/${commandLineArgs.project}`, 'utf8')
-  const ast = parse(res, { sourceType: 'module' })
+
+  const ast = parse(res, { plugins: ['typescript'], sourceType: 'module' })
 
   // export default 命名的默认导出
   let ExportDefaultDeclarationName: null | string = null

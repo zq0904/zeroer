@@ -9,8 +9,8 @@ const plugins = [
   new CleanWebpackPlugin(), // 根据output.path去清空
   new Webpack.ProgressPlugin((percentage, message, ...args) => log((percentage * 100).toFixed(2) + '% ' + message)), // 进度条 命令行 --progress
   new CopyWebpackPlugin([{
-    from: `${paths.project.public}}/!(dll)/**/*.*`, // 项目public下 一级目录除dll目录（dll会通过AddAssetHtmlPlugin拷贝）会被当做静态资源
-    to: `${paths.project.distPath}/${config.project.version}/static`,
+    from: `${paths.project.public}/!(dll)/**/*.*`, // 项目public下 一级目录除dll目录（dll会通过AddAssetHtmlPlugin拷贝）会被当做静态资源
+    to: `${paths.project.distPath}/${config.version}/static`,
     transformPath (targetPath, absolutePath) { // 修改写入路径 去掉public
       return targetPath.replace(/^(.+)public\/(.+)$/, '$1$2')
     },
@@ -24,7 +24,7 @@ const plugins = [
       collapseWhitespace: true, // 去除空格
       removeAttributeQuotes: true, // 去除标签属性值的双引号
     },
-    templateParameters: config.project, // ejs模板参数
+    templateParameters: config, // ejs模板参数
   }),
   ...dlls,
   // new Webpack.ProvidePlugin({ // 相当于为每个模块都 import

@@ -13,5 +13,4 @@ const server = new WebpackDevServer(compiler, {
   },
 })
 
-// @ts-ignore TODO config 要合理的修改下
 server.listen(dev.devServer.port, dev.devServer.host, () => log(`server running to http://${dev.devServer.host}:${dev.devServer.port}`, 'blue'))

@@ -1,6 +1,8 @@
+import Webpack from 'webpack'
 import merge from 'webpack-merge'
 import base from './base'
 import { paths, config } from '../../utils'
+import { ProjectConfig } from '../../types'
 
 const dev = merge(base, {
   devServer: { // webpack-dev-server 提供了对资产的快速 内存 访问 内存效率更高
@@ -19,6 +21,6 @@ const dev = merge(base, {
     // },
     ...config.devServer
   }
-})
+}) as Webpack.Configuration & { devServer: ProjectConfig['devServer'] }
 
 export default dev

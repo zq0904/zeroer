@@ -1,6 +1,6 @@
 
 import style from './style'
-import { paths, config, resolve } from '../../../utils'
+import { paths, commandLineArgs, config, resolve } from '../../../utils'
 
 const name = '[name].[contenthash:7].[ext]'
 
@@ -8,7 +8,7 @@ const rules = [ // 双倒序规则
   {
     test: /\.(t|j)sx?$/,
     exclude: /(node_modules|bower_components)/,
-    include: paths.project.src, // 最好设置以优化性能
+    include: [paths.project.src, `${paths.project.root}/${commandLineArgs.project}`], // 最好设置以优化性能
     loader: 'babel-loader',
     options: {
       // configFile: resolve(paths.cli.root, 'babel'), // 手动指定配置文件
@@ -33,7 +33,7 @@ const rules = [ // 双倒序规则
     loader: 'url-loader', // url-loader 依赖于 file-loader
     options: {
       limit: 5 * 1024, // url-loader 小于limit DataURl编码内置模板 大于limit file-loader 直接拷贝原文件修改url路径
-      outputPath: `${config.project.version}/images`,
+      outputPath: `${config.version}/images`,
       name, // css样式中的url相对路径 import导入的
     }
   },
@@ -42,7 +42,7 @@ const rules = [ // 双倒序规则
     loader: 'url-loader',
     options: {
       limit: 5 * 1024,
-      outputPath: `${config.project.version}/fonts`,
+      outputPath: `${config.version}/fonts`,
       name,
     }
   },
@@ -51,7 +51,7 @@ const rules = [ // 双倒序规则
     loader: 'url-loader',
     options: {
       limit: 5 * 1024,
-      outputPath: `${config.project.version}/media`,
+      outputPath: `${config.version}/media`,
       name,
     }
   },

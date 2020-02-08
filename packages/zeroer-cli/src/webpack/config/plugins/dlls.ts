@@ -17,8 +17,8 @@ const dlls = [
   new AddAssetHtmlPlugin(
     fileNames.map(fileName => ({
       filepath: globby.sync(`${paths.project.dll}/${fileName}.${isPrd ? 'prd' : 'dev'}.*.js`)[0],
-      outputPath: `${config.project.version}/static/dll`,
-      publicPath: `${config.project.version}/static/dll`,
+      outputPath: `${config.version}/static/dll`,
+      publicPath: `${config.version}/static/dll`,
     }))
   ),
 ]

@@ -2,13 +2,7 @@ import mobxPackage from 'mobx/package.json'
 import { toJS } from 'mobx'
 import sourceAxios, { AxiosRequestConfig, AxiosInterceptorManager, AxiosResponse } from 'axios'
 import qs from 'qs'
-
-type Response<T> = {
-  data: T;
-  flag: 1;
-}
-
-type ResponseControl<T, U = any> = { data: T; flag: 1 } | { data: U; flag: 0; msg: string }
+import { Response, ResponseControl } from '@/types'
 
 interface AxiosRequestConfigControl extends AxiosRequestConfig {
   headers: {
@@ -27,16 +21,20 @@ interface AxiosInstance {
     response: AxiosInterceptorManager<AxiosResponse>;
   };
   getUri(config?: AxiosRequestConfig): string;
-  request<T = any, R = Response<T>> (config: AxiosRequestConfig): Promise<R>;
   // 重载
+  request<T = any, R = ResponseControl<T>> (config: AxiosRequestConfigControl): Promise<R>;
+  request<T = any, R = Response<T>> (config: AxiosRequestConfig): Promise<R>;
   get<T = any, U = {}, R = ResponseControl<T, U>>(url: string, config: AxiosRequestConfigControl): Promise<R>;
   get<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
+  delete<T = any, R = ResponseControl<T>>(url: string, config: AxiosRequestConfigControl): Promise<R>;
   delete<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
+  head<T = any, R = ResponseControl<T>>(url: string, config: AxiosRequestConfigControl): Promise<R>;
   head<T = any, R = Response<T>>(url: string, config?: AxiosRequestConfig): Promise<R>;
-  // 重载
   post<T = any, U = {}, R = ResponseControl<T, U>>(url: string, data: any, config: AxiosRequestConfigControl): Promise<R>;
   post<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
+  put<T = any, R = ResponseControl<T>>(url: string, data: any, config: AxiosRequestConfigControl): Promise<R>;
   put<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
+  patch<T = any, R = ResponseControl<T>>(url: string, data: any, config: AxiosRequestConfigControl): Promise<R>;
   patch<T = any, R = Response<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R>;
 }
 

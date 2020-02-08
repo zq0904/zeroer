@@ -14,7 +14,7 @@ const prd = merge(base, {
       entryOnly: true, // 只作用在主入口文件中
     }),
     new MiniCssExtractPlugin({
-      filename: `${config.project.version}/css/[name].[contenthash:7].css`,
+      filename: `${config.version}/css/[name].[contenthash:7].css`,
     }),
     new OptimizeCssAssetsPlugin(),
   ],
