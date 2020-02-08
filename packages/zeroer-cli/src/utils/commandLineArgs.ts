@@ -31,9 +31,9 @@ interface TopArgs {
 const topArgs: TopArgs = isMainProcess ? args : JSON.parse(args[COMMANDLINEARGS])
 
 const commandLineArgs = {
-  project: topArgs.project || topArgs.P || 'project.config.ts',
-  clear: topArgs.clear || topArgs.C || false,
-  help: topArgs.help || topArgs.H || false,
+  project: topArgs.project ?? topArgs.P ?? 'project.config.ts',
+  clear: topArgs.clear ?? topArgs.C ?? false,
+  help: topArgs.help ?? topArgs.H ?? false,
   _: topArgs._
 }
 

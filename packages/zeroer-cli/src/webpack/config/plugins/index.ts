@@ -11,7 +11,7 @@ const plugins = [
   new CopyWebpackPlugin([{
     from: `${paths.project.public}}/!(dll)/**/*.*`, // 项目public下 一级目录除dll目录（dll会通过AddAssetHtmlPlugin拷贝）会被当做静态资源
     to: `${paths.project.distPath}/${config.project.version}/static`,
-    transformPath(targetPath, absolutePath) { // 修改写入路径 去掉public
+    transformPath (targetPath, absolutePath) { // 修改写入路径 去掉public
       return targetPath.replace(/^(.+)public\/(.+)$/, '$1$2')
     },
     ignore: ['.*'] // 忽略 如 .gitkeep
@@ -33,7 +33,7 @@ const plugins = [
   // }),
   // new Webpack.DefinePlugin({ // Webpack内置的定义环境变量插件 注意'规则转义'
   //   bol: 'true', // true
-  //   str: JSON.stringify('string') // 'string' 
+  //   str: JSON.stringify('string') // 'string'
   // }),
   // 针对一些库的语言包 如moment element-ui antd 可忽略
   // 只有在上下文 moment 库中 import|require 的/^\.\/locale$/ （看源码得知）都将被忽略来达到 减小包体积的目的

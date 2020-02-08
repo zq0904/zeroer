@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-type Color = 'black'| 'red'| 'green'| 'yellow'| 'blue'| 'magenta'| 'cyan'| 'white'| 'gray'| 'grey'| 'blackBright'| 'redBright'| 'greenBright'| 'yellowBright'| 'blueBright'| 'magentaBright'| 'cyanBright'| 'whiteBright';
+type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white' | 'gray' | 'grey' | 'blackBright' | 'redBright' | 'greenBright' | 'yellowBright' | 'blueBright' | 'magentaBright' | 'cyanBright' | 'whiteBright';
 
 interface Log {
   (str: string, color?: Color): void;

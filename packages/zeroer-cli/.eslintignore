@@ -1,0 +1,6 @@
+
+node_modules/*
+bower_components/*
+
+# 自定义
+preset/*

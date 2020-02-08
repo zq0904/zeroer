@@ -62,7 +62,7 @@ const rules = [ // 双倒序规则
   // { // npm i -D expose-loader 将第三方包直接打到全局 当使用过一次 import $ from 'jquery'  $ jQuery 就会被挂载到全局 其他文件中不用再次导入
   //   test: require.resolve('jquery'),
   //   use: [{
-  //     loader: 'expose-loader', 
+  //     loader: 'expose-loader',
   //     options: '$'
   //   }, {
   //     loader: 'expose-loader',

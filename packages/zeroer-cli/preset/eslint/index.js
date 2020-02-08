@@ -34,7 +34,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  rules: {
+  rules: { // 0关闭 1警告 2错误
+    'comma-dangle': [1, 'only-multiline'], // 尾随逗号 允许（但不要求）多行可加可不加 单行不允许
     'no-return-assign': 0, // 函数不应该返回赋值 仅仅是为了更简洁
     'react/prop-types': 0, // 有了ts以后 不强制使用prop-types来校验
     '@typescript-eslint/ban-ts-ignore': 0, // 禁止使用 @ts-ignore

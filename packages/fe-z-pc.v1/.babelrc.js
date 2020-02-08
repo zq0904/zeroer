@@ -1,4 +1,4 @@
 module.exports = {
-  presets: ['zeroer-cli/babel'],
+  presets: ['zeroer-cli/preset/babel'],
   plugins: []
 }

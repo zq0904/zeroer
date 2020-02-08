@@ -16,7 +16,7 @@ const base: Webpack.Configuration = {
     path: paths.project.distPath,
     // https://stackoverflow.com/questions/50217480/cannot-use-chunkhash-or-contenthash-for-chunk-in-name-chunkhash-js-us
     // 由于dev环境 使用了hot热模块更换 不能使用contenthash
-    filename: `${config.project.version}/js/[name].${isPrd ? '[contenthash:7]': '[hash]'}.js`,
+    filename: `${config.project.version}/js/[name].${isPrd ? '[contenthash:7]' : '[hash]'}.js`,
   },
   resolve: {
     // mainFiles: ['index'], // import from './目录' 的解析方式 寻找目录下index 会尝试extensions

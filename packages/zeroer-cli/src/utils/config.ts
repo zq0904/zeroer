@@ -2,7 +2,7 @@ import { paths } from './paths'
 import { commandLineArgs } from './commandLineArgs'
 import { safeLoad } from './safeLoad'
 
-const matchRes = paths.project.root.match(/^.+\/(.+)\.(v\d+)$/) || []
+const matchRes = paths.project.root.match(/^.+\/(.+)\.(v\d+)$/) ?? []
 
 const config = {
   // 默认配置

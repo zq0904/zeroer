@@ -32,17 +32,17 @@ const modifyProjectConfig = async (strs: string, val: any) => {
     }
     return log(`modifyProjectConfig 方法执行失败 在${ExportDefaultDeclarationName}上 不存在${strs}`, 'red')
   }
-  
+
   babelTraverse(ast, {
-    ExportDefaultDeclaration: (node, opts) => {
+    ExportDefaultDeclaration: node => {
       // @ts-ignore
       node.node.declaration.name && (ExportDefaultDeclarationName = node.node.declaration.name)
     }
   })
-  if (!ExportDefaultDeclarationName) return log(`modifyProjectConfig 方法执行失败 项目不具有 命名的默认导出 ExportDefaultDeclarationName 不存在！`, 'red')
+  if (!ExportDefaultDeclarationName) return log('modifyProjectConfig 方法执行失败 项目不具有 命名的默认导出 ExportDefaultDeclarationName 不存在！', 'red')
 
   babelTraverse(ast, {
-    VariableDeclarator: (node, opts) => {
+    VariableDeclarator: node => {
       // @ts-ignore
       if (node.node.id.name === ExportDefaultDeclarationName) {
         // @ts-ignore

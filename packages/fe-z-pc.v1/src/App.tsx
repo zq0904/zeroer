@@ -8,9 +8,7 @@ const App = () => (
   <StrictMode>
     <Router>
       <Suspense fallback={<Spin style={{ minHeight: 'calc(100vh - 30px)' }} />}>
-        <Layout>
-          { renderRoutes(rootRoutes) }
-        </Layout>
+        <Layout>{renderRoutes(rootRoutes)}</Layout>
       </Suspense>
     </Router>
   </StrictMode>

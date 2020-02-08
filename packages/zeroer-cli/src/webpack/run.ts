@@ -4,7 +4,7 @@ import Webpack from 'webpack'
 const run = (config: Webpack.Configuration) => {
   Webpack(config).run((err, stats) => {
     if (err) {
-      console.error(err.stack || err)
+      console.error(err.stack ?? err)
       // @ts-ignore
       if (err.details) console.error(err.details)
       return

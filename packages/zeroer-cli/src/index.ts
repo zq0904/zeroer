@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-script -T -O {"target":"ESNEXT","module":"commonjs","strict":true,"esModuleInterop":true,"forceConsistentCasingInFileNames":true}
+#!/usr/bin/env ts-script -T -O {"target":"ES2019","module":"commonjs","strict":true,"esModuleInterop":true,"forceConsistentCasingInFileNames":true}
 import fse from 'fs-extra'
 import {
   commandLineArgs,
@@ -107,7 +107,7 @@ for (const commond of commandLineArgs._) {
         passthroughCommandLineArgs
       ].join(' '))
       break
-    case 'mock':
+    case 'mock': {
       log('正在启动 mock数据...')
       // https://github.com/remy/nodemon/blob/master/doc/events.md#Using_nodemon_as_child_process
       const cp = execA([
@@ -118,10 +118,11 @@ for (const commond of commandLineArgs._) {
         `${paths.cli.src}/mock/index.ts`,
         mockPassthroughCommandLineArgs
       ].join(' '))
-      .on('message', event => {
-        if (event.type === 'crash') cp.cancel() // nodemon 程序崩溃 直接退出
-      })
+        .on('message', event => {
+          if (event.type === 'crash') cp.cancel() // nodemon 程序崩溃 直接退出
+        })
       break
+    }
     case 'test':
       execA([
         `ts-node -T --script-mode --project ${paths.cli.root}/tsconfig.json`,

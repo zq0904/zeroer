@@ -17,6 +17,7 @@ const paths = {
   cli: {
     root: cliRootPath,
     src: `${cliRootPath}/src`,
+    preset: `${cliRootPath}/preset`,
     webpack: `${cliRootPath}/src/webpack`
   },
 }

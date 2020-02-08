@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run server",
     "dev": "npm run server",
+    "build": "npm run build:dev & npm run build:prd",
     "server": "zeroer-cli server",
     "build:dev": "zeroer-cli build:dev",
     "build:prd": "zeroer-cli build:prd",
@@ -13,8 +14,8 @@
     "analyzer:dev": "zeroer-cli analyzer:dev",
     "analyzer:prd": "zeroer-cli analyzer:prd",
     "mock": "zeroer-cli mock",
-    "test:dev": "cd ./dist-dev && hs -o -p 3000 -c-1",
-    "test:prd": "cd ./dist-prd && hs -o -p 3000 -c-1"
+    "preview:dev": "cd ./dist-dev && npx hs -o -p 4321 -c-1",
+    "preview:prd": "cd ./dist-prd && npx hs -o -p 4321 -c-1"
   },
   "keywords": [],
   "author": "zhaoqi",

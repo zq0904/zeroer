@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import koaRouter from 'koa-router'
+import KoaRouter from 'koa-router'
 import detectPort from 'detect-port'
 import cors from '@koa/cors'
 import inquirer from 'inquirer'
@@ -25,9 +25,9 @@ detectPort(config.mock.port)
     }
 
     const { default: data } = safeLoad(`${paths.project.src}/mock/data.ts`)
-    
+
     const app = new Koa()
-    const router = new koaRouter()
+    const router = new KoaRouter()
 
     app.use(cors({
       origin: `http://${config.devServer.host}:${config.devServer.port}`,
@@ -37,14 +37,14 @@ detectPort(config.mock.port)
     // 注册每个路由
     let html = ''
     for (const url in data) {
-      router.all(url, async (ctx, next) => ctx.body = data[url])
+      router.all(url, async ctx => ctx.body = data[url])
       html += `<a href="${url}">${url}</a><br/>`
     }
     router.all('/', ctx => ctx.body = html)
 
     // 添加路由器中间件
     app.use(router.routes())
-    
+
     app.listen(config.mock.port, () => log(`mock server running to http://${config.mock.host}:${config.mock.port}`, 'blue'))
   })
   .catch(err => log(err, 'red'))
