@@ -3,11 +3,11 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import dlls from './dlls'
-import { log, paths, config } from '../../../utils'
+import { logToSingleLine, paths, config } from '../../../utils'
 
 const plugins = [
   new CleanWebpackPlugin(), // 根据output.path去清空
-  new Webpack.ProgressPlugin((percentage, message, ...args) => log((percentage * 100).toFixed(2) + '% ' + message)), // 进度条 命令行 --progress
+  new Webpack.ProgressPlugin((percentage, message, ...args) => logToSingleLine(`${(percentage * 100).toFixed(2)}% ${message}`)), // 进度条 命令行 --progress
   new CopyWebpackPlugin([{
     from: `${paths.project.public}/!(dll)/**/*.*`, // 项目public下 一级目录除dll目录（dll会通过AddAssetHtmlPlugin拷贝）会被当做静态资源
     to: `${paths.project.distPath}/${config.version}/static`,

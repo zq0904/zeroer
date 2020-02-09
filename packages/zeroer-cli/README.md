@@ -5,6 +5,7 @@
 ```
 ## TODO
 ```
+  commander 优化命令行参数 及说明等
   npm WARN styled-jsx@3.2.4 requires a peer of react@15.x.x || 16.x.x but none is installed. You must install peer dependencies yourself.
   构建编译 styled-jsx -> post-css未生效
   npx zeroer 命令生成项目模板 // 应该是另一个项目
