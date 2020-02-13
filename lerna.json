@@ -1,12 +1,20 @@
 {
+  "version": "independent",
+  "npmClient": "npm",
   "packages": [
     "packages/*"
   ],
-  "version": "independent",
+  "ignoreChanges": [
+    "**/node_modules/**",
+    "**/dist-*/**",
+    "**/esm/**",
+    "**/umd/**",
+    "**/*.log*",
+    "**/*.md"
+  ],
   "command": {
     "publish": {
-      "message": "chore: publish",
-      "ignoreChanges": ["fe-z-pc.v1", "zeroer-core"]
+      "message": "chore(release): publish %v"
     },
     "bootstrap": {
       "hoist": false

@@ -1,11 +1,28 @@
-# 使用Lerna 管理zeroer项目
-## 注意事项
-  - npm link | lerna 的“软连接”复用形式
-    + 针对ui包（不涉及 子进程命令加载的） 应该是比较好用的
-    + cli包 要么将这个包发布调试 要么 先安装这个cli（先把依赖装到node_modules下）在使用npm link
-## 使用 npm run commit 方便的获取所需的commit信息
-  - 常用的type类型有
-
+# 使用Lerna管理 zeroer项目
+## 安装依赖
+```
+  npm run install // 初次下载依赖（未使用hoist参数 参见注意事项）
+  删除或添加依赖项 // 在相应的包里 npm i <pkg_name> | npm uni <pkg_name>（破坏“软连接”）
+```
+## 开发流程
+```
+  进入zeroer-cli项目下执行 npm link
+  进入fe-z-pc.v1项目下执行 npm i && npm link zeroer-cli // 参见注意事项
+```
+## 发布
+```
+  // 发布正式包 必须是主干才能使用lerna发包
+  // 只有发布正式包时 才会生成CHANGELOG文件
+  // 测试包 随便发（不需要保证测试包的分支是远程最新 也不会打tag）
+  npm run release // 交互式可选
+  npm run release --preset alpha 等价于 node scripts/release.js --preset alpha // 发布alpha版
+```
+## 其他命令
+```
+  npm run list // 查看当前各个包的版本信息
+  npm run commit // 使用commitizen cz-conventional-changelog 以询式的方式去获取所需的commit提交信息
+```
+- 常用的type类型有
   | type | 描述 |
   | - | - |
   | feat | 新功能 |
@@ -19,8 +36,12 @@
   | build | 影响构建系统或外部依赖项的更改(例如作用域:gulp、broccoli、npm) |
   | chore | 不修改src或测试文件的其他更改 |
   | revert | 返回先前的提交 |
+## 注意事项
+  - npm link 或（lerna bootstrap | lerna add）的“软连接”复用形式
+    + 针对“类ui”包（不涉及 子进程命令加载的） 应该是比较好用的
+    + 针对“类cli”包 可以尝试先安装这个cli包（实际上先把依赖装到node_modules下）在使用npm link <pkg_name>
 ## TODO
 ```
-  npx lerna bootstrap 不能使用hoist参数 // zeorer-core 中 rollup rollup-plugin-node-resolve模块解析算法有问题 [参见](https://github.com/lerna/lerna/blob/master/doc/hoist.md)
-  "ignoreChanges": ["fe-z-pc.v1", "zeroer-core"] 未测试
+  1.script/release.js execA执行 git commit -m 'chore(release): publish' 报错问题 暂时使用execP代替
+  2.npx lerna bootstrap 使用hoist参数 // zeorer-core 中 rollup rollup-plugin-node-resolve模块解析算法有问题 [参见](https://github.com/lerna/lerna/blob/master/doc/hoist.md)
 ```

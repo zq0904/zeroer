@@ -1,21 +1,27 @@
 {
-  "name": "root",
+  "name": "zeroer",
   "private": true,
   "scripts": {
     "install": "npx lerna bootstrap",
+    "list": "lerna list -l",
+    "release": "node scripts/release.js",
     "commit": "git-cz"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.0.2",
-    "husky": "^3.1.0",
-    "lerna": "^3.19.0"
+    "cz-conventional-changelog": "^3.1.0",
+    "execa": "^4.0.0",
+    "husky": "^4.2.3",
+    "inquirer": "^6.5.2",
+    "lerna": "^3.20.2",
+    "minimist": "^1.2.0",
+    "shelljs": "^0.8.3"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "commitlint": {
