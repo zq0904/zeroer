@@ -1,3 +1,4 @@
+// TODO 未经严格的测试
 
 // 浏览器类型
 type BrowserType = 'Ie' | 'Wx' | 'Ff' | 'Sf' | 'Op' | 'Qq' | 'Ay' | 'Sg' | 'Lb' | 'Ep' | 'Ch' | '未知'
@@ -14,7 +15,9 @@ const userAgent = {
   isMac: ua.indexOf('mac os x') > -1, // mac
   isWin: ua.indexOf('windows') > -1, // windows
 
-  version: ua.match(/(edge|msie|firefox|chrome|version).*?([\d.]+)/) ? (ua.match(/(msie|firefox|opera|chrome|version).*?([\d.]+)/) as RegExpMatchArray)[2] : '未知', // 版本
+  // 版本
+  version: ua.match(/(edge|msie|firefox|chrome|version).*?([\d.]+)/) ? (ua.match(/(msie|firefox|opera|chrome|version).*?([\d.]+)/) as RegExpMatchArray)[2] : '未知',
+  
   // 浏览器类型
   browserType: (() => {
     if ((window as any).attachEvent && (ua.includes('edge') || ua.includes('msie') || ua.includes('trident'))) return 'Ie'

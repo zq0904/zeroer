@@ -1,3 +1,4 @@
+
 const noop: () => void = () => {}
 
 // 声明类型保护
@@ -24,11 +25,20 @@ const isRegExp = (arg: any): arg is RegExp => Object.prototype.toString.call(arg
 
 const isDate = (arg: any): arg is Date => Object.prototype.toString.call(arg) === '[object Date]'
 
-const isBuffer = (arg: any): arg is Buffer => { // 只针对node环境
+// 只针对node环境
+const isBuffer = (arg: any): arg is Buffer => {
   if (isNull(arg) || isUndefined(arg)) return false
   return !!(arg.constructor && arg.constructor.isBuffer && arg.constructor.isBuffer(arg))
 }
 
+/**
+ * 将多个对象的内容合并到目标对象中
+ * @example
+ * const a = { obj: { a: 1 }, arr: [1, 2], v: 1 }
+ * const b = { obj: { b: 2 }, arr: [3, 4, 5], v: 2 }
+ * extend(a, b) // { obj: {b: 2}, arr: (3) [3, 4, 5], v: 2 }
+ * extend(true, a, b) // 深度合并对象 { obj: {a: 1, b: 2}, arr: (3) [3, 4, 5], v: 2 }
+ */
 const extend = (...args: any[]) => {
   isObject(args[0]) ? args.unshift(false) : args[0] = !!args[0] // 统一入参
   const [deep, target, ...other] = args
@@ -69,5 +79,5 @@ export {
   isRegExp,
   isDate,
   isBuffer,
-  extend
+  extend,
 }

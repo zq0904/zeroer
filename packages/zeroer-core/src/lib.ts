@@ -7,7 +7,7 @@ const getTimeStamp = (days: Days) => {
     const date = new Date()
     return date.getTime() + 1000 * 60 * 60 * 24 * days
   } else if (isString(days)) {
-    return new Date(days.replace(/-/g, '/')).getTime() // 兼容ios
+    return new Date(days.replace(/-/g, '/')).getTime() // 兼容safari
   } else { // date实例
     return days.getTime()
   }

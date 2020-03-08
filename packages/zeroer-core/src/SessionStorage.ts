@@ -1,7 +1,7 @@
 import { isString } from './Object'
 import { set, get, del } from './Cookie'
 
-// 兼容Safari无痕
+// 为兼容Safari无痕
 const { sessionStorage } = window
 const PREFIX = '_sS_'
 let isSupport = true
@@ -14,6 +14,13 @@ try {
   isSupport = false
 }
 
+/**
+ * 设置sessionStorage（为兼容Safari无痕 在不能使用sessionStorage的时候使用Cookie代替）
+ * @example
+ * setItem('a', { a: 1 })
+ * setItem('b', '1')
+ * setItem('c', 1)
+ */
 const setItem = (name: string, val: any) => {
   const item = JSON.stringify({ v: val })
   if (isSupport) {
@@ -23,6 +30,11 @@ const setItem = (name: string, val: any) => {
   }
 }
 
+/**
+ * 获取sessionStorage（为兼容Safari无痕 在不能使用sessionStorage的时候使用Cookie代替）
+ * @example
+ * getItem('a')
+ */
 const getItem = (name: string) => {
   let res
   if (isSupport) {
@@ -34,6 +46,11 @@ const getItem = (name: string) => {
   return null
 }
 
+/**
+ * 删除sessionStorage（为兼容Safari无痕 在不能使用sessionStorage的时候使用Cookie代替）
+ * @example
+ * removeItem('b')
+ */
 const removeItem = (name: string) => {
   if (isSupport) {
     sessionStorage.removeItem(name)
@@ -42,6 +59,11 @@ const removeItem = (name: string) => {
   }
 }
 
+/**
+ * 清空sessionStorage（为兼容Safari无痕 在不能使用sessionStorage的时候使用Cookie代替）
+ * @example
+ * clear()
+ */
 const clear = () => {
   if (isSupport) {
     sessionStorage.clear()

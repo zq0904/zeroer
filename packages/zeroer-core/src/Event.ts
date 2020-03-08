@@ -5,8 +5,19 @@ interface Events {
   [key: string]: Function[];
 }
 
+/**
+ * 发布订阅类
+ * @example
+ * const event = new Event()
+ */
 class Event {
   private events: Events = {}
+  /**
+   * 订阅事件
+   * @example
+   * const fn = (...args: any[]) =>  console.log(this, ...args) // 保持引用 用于解绑订阅
+   * event.on('eventName', fn)
+   */
   on = (eventName: string, fn: Function) => {
     if (eventName in this.events) {
       this.events[eventName].push(fn)
@@ -14,6 +25,11 @@ class Event {
       this.events[eventName] = [fn]
     }
   }
+  /**
+   * 发布事件
+   * @example
+   * event.emit('eventName', 'arg1', 'arg2') // 发布eventName所对应的所有事件 并传递参数
+   */
   emit = (eventName: string, ...args: any[]) => {
     if (eventName in this.events && this.events[eventName].length > 0) {
       for (const fn of this.events[eventName]) {
@@ -21,6 +37,13 @@ class Event {
       }
     }
   }
+  /**
+   * 取消订阅
+   * @example
+   * event.off() // 取消所有
+   * event.off('eventName') // 取消eventName 对应的所有事件
+   * event.off('eventName', fn) // 取消eventName 的fn事件
+   */
   off = (eventName?: string, fn?: Function) => {
     if (isString(eventName)) {
       if (isFunction(fn)) {
@@ -42,6 +65,11 @@ class Event {
       this.events = {}
     }
   }
+  /**
+   * 订阅一次事件
+   * @example
+   * event.once('eventName', () => {})
+   */
   once = (eventName: string, fn: Function) => {
     const fnc = function (this: any, ...args: any[]) {
       fn.apply(this, args)

@@ -4,22 +4,21 @@ import { complement as c } from './Number'
 type NSD = number | string | Date
 
 const toDate = (t: NSD) => {
-  if (isNumber(t)) {
-    return new Date(t)
-  } else if (isString(t)) {
-    return new Date(t)
-  } else if (isDate(t)) {
-    return t
-  } else {
-    return new Date()
-  }
+  if (isNumber(t)) return new Date(t)
+  if (isString(t)) return new Date(t.replace(/-/g, '/')) // 兼容safari
+  if (isDate(t)) return t
+  return new Date()
 }
 
-// 时间格式化
-// format(Date.now(), 'YYYY-MM-DD a')
-// format('2019/09/04 13:00', 'YYYY-MM-DD a')
-// format(new Date(), 'YYYY-MM-DD a')
-// format(new Date())
+/**
+ * 时间格式化
+ * @example
+ * format(Date.now(), 'YYYY-MM-DD HH:mm:ss') // 接收时间戳
+ * format('2019/09/04 13:00', 'YYYY-MM-DD HH:mm:ss') // 接收字符串
+ * format('2019-09-04 13:00', 'YYYY-MM-DD HH:mm:ss') // 接收字符串
+ * format(new Date()) // 接收Date实例
+ * format(new Date().getTime(), 'YYYY-MM-DD a hh:mm:ss') // hh 12小时制
+ */
 const format = (date: NSD, f = 'YYYY-MM-DD HH:mm:ss') => {
   const d = toDate(date)
   const gF = d.getFullYear()
@@ -52,11 +51,14 @@ const format = (date: NSD, f = 'YYYY-MM-DD HH:mm:ss') => {
   return f
 }
 
-// 计算时间相差
-// diff(new Date('2018/01/01').getTime(), new Date('2018/01/02 13:00:00').getTime(), 'H') => 37
-// diff('2018/01/01', '2018/01/02 13:00:00', 'H') => 37
-// diff(new Date('2018/01/01'), new Date('2018/01/02 13:00:00'), 'H') => 37
-// diff('2018/01/01', new Date('2018/01/02 13:00:00'))
+/**
+ * 计算时间相差
+ * @example
+ * diff(new Date('2018/01/01').getTime(), new Date('2018/01/02 13:00:00').getTime(), 'H') // 37
+ * diff('2018-01-01', '2018/01/02 13:00:00', 'H')
+ * diff(new Date('2018/01/01'), new Date('2018/01/02 13:00:00'), 'H')
+ * diff('2018/01/01', new Date('2018/01/02 13:00:00'), 'H')
+ */
 const diff = (start: NSD, end: NSD, format = 'ms') => {
   let d: number
   switch (format) {

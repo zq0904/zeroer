@@ -32,9 +32,13 @@ const removeExpired = () => {
   }
 }
 
-// setItem('a', { a: 1 }) 随浏览器进程
-// setItem('a', { a: 1 }, 1) 存1天
-// setItem('a', { a: 1 }, '2019/10/31') 到2019/10/31
+/**
+ * 设置localStorage（加入了过期时间概念）
+ * @example
+ * setItem('a', { a: 1 }) // 随浏览器进程
+ * setItem('b', { b: 1 }, 1) // 存储1天失效
+ * setItem('c', { c: 1 }, '2019/09/04') // 到 2019/09/04 00:00:00 失效
+ */
 const setItem = (name: string, val: any, days: Days | false = false) => {
   removeExpired()
   // 如果设置的过期时间 本身就已经过期 则return掉
@@ -48,6 +52,11 @@ const setItem = (name: string, val: any, days: Days | false = false) => {
   } catch (err) {}
 }
 
+/**
+ * 获取localStorage（加入了过期时间概念）
+ * @example
+ * getItem('a')
+ */
 const getItem = (name: string) => {
   const res = localStorage.getItem(PREFIX + name)
   if (res) {
@@ -65,11 +74,20 @@ const getItem = (name: string) => {
   return null
 }
 
+/**
+ * 删除localStorage（只会删除由“该套方法”所存储的值 不会删除“其他”localStorage 基于前缀）
+ * @example
+ * removeItem('a')
+ */
 const removeItem = (name: string) => {
   localStorage.removeItem(PREFIX + name)
 }
 
-// 清空所有由该方法所存储的数据
+/**
+ * 清空localStorage（只会清空由“该套方法”所存储的值 不会清空“其他”localStorage 基于前缀）
+ * @example
+ * clear()
+ */
 const clear = () => {
   for (const name of Object.keys(localStorage.valueOf())) {
     name.startsWith(PREFIX) && localStorage.removeItem(name)

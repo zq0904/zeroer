@@ -32,17 +32,14 @@
   Event 订阅发布模型
   SessionStorage 主要用于 兼容Safari无痕
   LocalStorage 加入过期时间概念
-
-  对 react组件 .tsx .less 支持（）
 ```
 ## TODO
 ```
   esm 压缩是没有意义的
+  tool工具抽取
   uA 判断的完善 // 移动端未测试
-  合并函数 comp...
+  对react组件 .tsx .less 的支持 后期 考虑去除（rollup尽量只用于构建纯js的项目 像ui库 最好还是使用webpack去构建）
   单元测试 集成部署测试
   覆盖率测试
   hook 目录的取舍问题 引入lerna后 我仍希望发正式版的包必须是主干！
-  tool工具抽取
-  对react组件 .tsx .less 的支持 后期 考虑去除（rollup尽量只用于构建纯js的项目 像ui库 最好还是使用webpack去构建）
 ```

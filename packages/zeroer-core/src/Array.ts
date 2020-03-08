@@ -1,6 +1,11 @@
 import { isArray } from './Object'
 
-// 展平数组
+/**
+ * 展平数组 可使用原生[].flat()替换
+ * @example
+ * flat([1, [2, [3]]], 1) // [1, 2, [3]]
+ * flat([1, [2, [3]]]) // [1, 2, 3]
+ */
 const flat = (arr: any[], dep = Infinity) => {
   if (!isArray(arr)) return arr
   let newArr = arr
@@ -11,7 +16,11 @@ const flat = (arr: any[], dep = Infinity) => {
   return newArr
 }
 
-// 从数组中删除指定的值
+/**
+ * 从数组中删除指定的值
+ * @example
+ * remove([1, 2, 3], 2) // [1, 3]
+ */
 const remove = (arr: any[], val: any) => {
   const index = arr.findIndex(v => v === val)
   if (index > -1) {
@@ -20,7 +29,11 @@ const remove = (arr: any[], val: any) => {
   return arr
 }
 
-// 数组做差 得到一个新数组
+/**
+ * 数组做差（得到一个新数组）
+ * @example
+ * subtract([1, 2, 3], [2, 3]) // [1]
+ */
 const subtract = (target: any[], arr: any[]) => {
   const result = []
   for (const v of target) {
