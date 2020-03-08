@@ -55,14 +55,23 @@ const curry = (fn: (...args: any[]) => any, ...args: any[]) => {
 /**
  * 函数合并（将多个函数合并 依次从右向左执行 后一个函数的返回值 作为前一个函数的入参 最右侧函数可以是多参）
  * @example
- * const a = (s: string) => s + '!'
- * const b = (s: string, ss: string) => s + ss
- * const c = compose(a, b)
- * c('1', '2') // '12!'
+ * const c = compose(Math.abs, Math.pow)
+ * c(-2, 3) // 8
  */
 const compose = (...args: any[]) => {
   if (args.length === 0) return (initialVal: any) => initialVal
   return args.reduceRight((aFn, bFn) => (...parameters: any[]) => bFn(aFn(...parameters)))
+}
+
+/**
+ * 函数合并（将多个函数合并 依次从左向右执行 前一个函数的返回值 作为后一个函数的入参 最左侧函数可以是多参）
+ * @example
+ * const p = pipe(Math.pow, Math.abs)
+ * p(-2, 3) // 8
+ */
+const pipe = (...args: any[]) => {
+  if (args.length === 0) return (initialVal: any) => initialVal
+  return args.reduce((bFn, aFn) => (...parameters: any[]) => aFn(bFn(...parameters)))
 }
 
 export {
@@ -70,4 +79,5 @@ export {
   debounce,
   curry,
   compose,
+  pipe,
 }

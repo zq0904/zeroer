@@ -168,8 +168,14 @@ console.log(
   curryAdd(1)(2, 3)
 )
 
-const c = z.Util.compose(function(s) { return s + '!' }, function(s, ss) { return s + ss })
+var c = z.Util.compose(Math.abs, Math.pow)
 console.log(
   'Util.compose',
-  c('1', '2')
+  c(-2, 3)
+)
+
+var p = z.Util.pipe(Math.pow, Math.abs)
+console.log(
+  'Util.pipe',
+  p(-2, 3)
 )
