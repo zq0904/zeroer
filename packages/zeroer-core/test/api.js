@@ -21,7 +21,8 @@ z.Cookie.set('c', 'cVal') // 当前会话期间
 console.log(
   'Cookie.get ',
   z.Cookie.get('a'),
-  z.Cookie.get('b')
+  z.Cookie.get('b'),
+  z.Cookie.get('c')
 )
 
 // Date

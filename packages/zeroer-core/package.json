@@ -5,24 +5,29 @@
     "name": "zhaoqi"
   },
   "bundleDependencies": [],
-  "main": "umd/index.js",
+  "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rollup -w -c rollup.config.js",
-    "build": "npm run build:js & npm run build:types",
-    "build:js": "cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "build:types": "rm -rf types && tsc --emitDeclarationOnly --declarationDir types",
-    "lint:fix": "eslint src --ext .js,.ts --fix",
-    "check:types": "tsc --noEmit -w"
+    "build": "npm run lint && npm run build:all",
+    "build:all": "npm run build:cjs & npm run build:esm & npm run build:umd & npm run build:types",
+    "build:cjs": "rm -rf ./cjs && cross-env BABEL_MODULES=cjs babel src -d cjs -s -x .js,.jsx,.ts,.tsx",
+    "build:esm": "rm -rf ./esm && babel src -d esm -s -x .js,.jsx,.ts,.tsx",
+    "build:umd": "rm -rf ./umd && cross-env NODE_ENV=production rollup -c rollup.config.js",
+    "build:types": "rm -rf ./types && tsc --emitDeclarationOnly --declarationDir types",
+    "lint": "npm run check:eslint & npm run check:types",
+    "check:eslint": "eslint src --ext .js,.ts",
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.7.6"
+    "@babel/runtime-corejs3": "^7.8.7"
   },
   "deprecated": false,
   "description": "``` zeroer-core core library ```",
   "devDependencies": {
-    "@babel/core": "^7.7.5",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.0",
@@ -77,6 +82,7 @@
     "ie >= 10"
   ],
   "files": [
+    "cjs",
     "esm",
     "umd",
     "types"

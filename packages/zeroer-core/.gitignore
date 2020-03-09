@@ -20,6 +20,7 @@ yarn-error.log*
 *.sw?
 
 # The custom
-/umd
+/cjs
 /esm
+/umd
 /types
