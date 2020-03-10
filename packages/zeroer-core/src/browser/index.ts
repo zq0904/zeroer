@@ -1,5 +1,5 @@
-import userAgent from './userAgent'
+import getUserAgent from './getUserAgent'
 
 export {
-  userAgent,
+  getUserAgent,
 }
