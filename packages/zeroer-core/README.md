@@ -3,10 +3,12 @@
 ## 命令
 ```
   npm run dev // 开发模式 (使用browsersync 支持proxy中间件)
-  npm run build // 构建 umd版本 esm版本 声明文件
-  npm run build:js // 构建 umd版本 esm版本
+  npm run build:all // 构建 cjs版本 esm版本 umd版本 声明文件
+  npm run build:cjs // 构建 cjs版本
+  npm run build:esm // 构建 esm版本
+  npm run build:umd // 构建 umd版本
   npm run build:types // 构建 声明文件
-  npm run check:types // 类型检测 (eslint + vscode 配置好 可以完全忽略)
+  npm run lint // 检测eslint错误 和 ts类型错误 (eslint + vscode 配置好 可以完全忽略)
 ```
 ## ts构建流程问题 [参考](https://github.com/Microsoft/TypeScript-Babel-Starter#readme)
 ```
@@ -17,28 +19,21 @@
 ## 使用
 ```
   npm i zeroer-core
-  import { Object } from 'zeroer-core'
+  // TODO 测试后 在写
+  import { Object } from 'zeroer-core' // 会打入Object下所有
+  import extend from 'zeroer-core/object/extend' // 最小打入
 ```
 ## 注意事项
 ```
   兼容性 支持IE10及以上 （按需内联了相关的）
-  由于保留了模块作用域 牺牲了“部分” tree swing
-```
-## 新增
-```
-  数组做差
-  getQs
-  setQs
-  Event 订阅发布模型
-  SessionStorage 主要用于 兼容Safari无痕
-  LocalStorage 加入过期时间概念
 ```
 ## TODO
 ```
-  esm 压缩是没有意义的
+  由于保留了模块作用域 牺牲了“部分” tree swing 已经转移 未测试
+
   tool工具抽取
   uA 判断的完善 // 移动端未测试
-  对react组件 .tsx .less 的支持 后期 考虑去除（rollup尽量只用于构建纯js的项目 像ui库 最好还是使用webpack去构建）
+  对react组件 .tsx .less 的支持 后期考虑去除（rollup尽量只用于构建纯js的项目 像ui库 最好还是使用webpack去构建）
   单元测试 集成部署测试
   覆盖率测试
   hook 目录的取舍问题 引入lerna后 我仍希望发正式版的包必须是主干！
