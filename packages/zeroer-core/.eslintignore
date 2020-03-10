@@ -5,6 +5,7 @@ bower_components/*
 # The custom
 cjs/*
 esm/*
+esm-streamline/*
 umd/*
 types/*
 test/*

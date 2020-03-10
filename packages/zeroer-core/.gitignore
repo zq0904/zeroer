@@ -22,5 +22,6 @@ yarn-error.log*
 # The custom
 /cjs
 /esm
+/esm-streamline
 /umd
 /types
