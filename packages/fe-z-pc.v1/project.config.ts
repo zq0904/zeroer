@@ -1,4 +1,4 @@
-/* eslint-disable semi */
+/* eslint-disable semi,eol-last */
 
 /*
   项目的配置文件
