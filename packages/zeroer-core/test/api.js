@@ -1,4 +1,4 @@
-var z = Zero // eslint-disable-line
+var z = zeroerCore // eslint-disable-line
 console.log(z)
 
 // Array
