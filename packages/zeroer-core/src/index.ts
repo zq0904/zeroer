@@ -1,31 +1,31 @@
-import * as Array from './array'
-import * as Browser from './browser'
-import * as Cookie from './cookie'
-import * as Date from './date'
-import * as Env from './env'
+import * as array from './array'
+import * as browser from './browser'
+import * as cookie from './cookie'
+import * as date from './date'
+import * as env from './env'
 import Event from './Event'
-import * as LocalStorage from './localStorage'
-import * as Number from './number'
-import * as Object from './object'
-import * as Qs from './qs'
-import * as SessionStorage from './sessionStorage'
-import * as String from './string'
-import * as Unicode from './unicode'
-import * as Util from './util'
+import * as localStorage from './localStorage'
+import * as number from './number'
+import * as object from './object'
+import * as qs from './qs'
+import * as sessionStorage from './sessionStorage'
+import * as string from './string'
+import * as unicode from './unicode'
+import * as util from './util'
 
 export {
-  Array,
-  Browser,
-  Cookie,
-  Date,
-  Env,
+  array,
+  browser,
+  cookie,
+  date,
+  env,
   Event,
-  LocalStorage,
-  Number,
-  Object,
-  Qs,
-  SessionStorage,
-  String,
-  Unicode,
-  Util,
+  localStorage,
+  number,
+  object,
+  qs,
+  sessionStorage,
+  string,
+  unicode,
+  util,
 }
