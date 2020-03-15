@@ -1,4 +1,3 @@
-import Webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 
 export enum NODE_ENV {
@@ -15,5 +14,5 @@ export interface ProjectConfig {
     host: string;
     port: number;
   };
-  devServer: WebpackDevServer.Configuration & { host: string; port: number; };
+  devServer: WebpackDevServer.Configuration & { host: string; port: number };
 }

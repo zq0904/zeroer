@@ -1,7 +1,7 @@
 import { ResponseControl } from '@/types'
 
 interface Data {
-  [s: string]: ResponseControl
+  [s: string]: ResponseControl;
 }
 
 const data: Data = {
