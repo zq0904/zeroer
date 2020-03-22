@@ -1,9 +1,12 @@
 {
   "name": "fe-z-pc.v1",
   "version": "0.0.4",
-  "description": "",
-  "keywords": [ "zeroer", "project template" ],
-  "author": "zhaoqi",
+  "description": "``` scaffold create a template project ```",
+  "keywords": [
+    "zeroer",
+    "project template"
+  ],
+  "author": "zhaoqi <154809748@qq.com>",
   "main": "",
   "module": "",
   "scripts": {
