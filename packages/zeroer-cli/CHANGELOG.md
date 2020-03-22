@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.4...zeroer-cli@0.0.5) (2020-03-22)
+
+
+### Bug Fixes
+
+* eslint ([e40f04c](https://github.com/zq0904/zeroer/commit/e40f04ca533232643b3cbdd713dd2d1d1bda15d2))
+
+
+### Features
+
+* zeroer-tool eslint抽取 ([f5779b7](https://github.com/zq0904/zeroer/commit/f5779b7fecec6fd351bf8c26041f9ce242a905d9))
+
+
+
+
+
 ## 0.0.4 (2020-02-13)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.0.4...fe-z-pc.v1@0.0.5) (2020-03-22)
+
+
+### Bug Fixes
+
+* eslint ([e40f04c](https://github.com/zq0904/zeroer/commit/e40f04ca533232643b3cbdd713dd2d1d1bda15d2))
+* 项目配置文件 eslint eol-last ([a195175](https://github.com/zq0904/zeroer/commit/a19517507a9e35beadf7e41d06e1fa9227ee94e8))
+
+
+
+
+
 ## 0.0.4 (2020-02-13)
 
 

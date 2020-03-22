@@ -1,6 +1,6 @@
 {
   "name": "zeroer-tool",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "description": "``` a set of build tools for UI and pure js ```",
   "keywords": [
     "zeroer",
