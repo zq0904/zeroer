@@ -7,6 +7,5 @@ umd/*
 cjs/*
 esm/*
 esm-streamline/*
-types/*
 test/*
 hook/*
