@@ -3,10 +3,10 @@ node_modules/*
 bower_components/*
 
 # The custom
+umd/*
 cjs/*
 esm/*
 esm-streamline/*
-umd/*
 types/*
 test/*
 hook/*
