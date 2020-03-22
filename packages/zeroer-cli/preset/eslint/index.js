@@ -2,7 +2,6 @@
 // 由于性能问题 TypeScript官方决定全面采用ESLint ESLint的TypeScript解析器也成为独立项目 typescript-eslint
 // typescript-eslint 的一些ts规则 https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
 
-// eslint
 module.exports = {
   root: true, // eslint将停止查找父文件夹
   env: {
