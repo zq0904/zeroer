@@ -1,6 +1,6 @@
 export * from './clearConsole'
 export * from './commandLineArgs'
-// export * from './config'
+export * from './config'
 export * from './execA'
 export * from './isPrd'
 export * from './log'

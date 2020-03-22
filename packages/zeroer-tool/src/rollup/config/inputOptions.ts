@@ -13,11 +13,8 @@ import progress from 'rollup-plugin-progress' // 构建进度
 import { terser } from 'rollup-plugin-terser' // uglify只能压缩es5语法 terser可以压缩es6语法
 // @ts-ignore
 import browsersync from 'rollup-plugin-browsersync'
-import { paths, resolve, isPrd } from '../../utils'
+import { paths, resolve, isPrd, config } from '../../utils'
 import { BuildVersion } from '../../types'
-
-// TODO从配置文件中获取
-const extensions = ['.js', '.jsx', '.mjs', '.ts', '.tsx']
 
 const inputOptions = {
   input: resolve(paths.project.root, 'src/index.ts'),
@@ -26,7 +23,7 @@ const inputOptions = {
     eslint({
       throwOnError: true, // 错误 直接抛出 中断打包
       throwOnWarning: true, // 警告 直接抛出 中断打包
-      include: extensions.map(suffix => resolve(paths.project.src, '**/*' + suffix)), // 如果设置 src/** 连less都会检测
+      include: config.extensions.map(suffix => resolve(paths.project.src, '**/*' + suffix)), // 如果设置 src/** 连less都会检测
     }),
     !isPrd && clear({
       targets: [resolve(paths.project.root, BuildVersion.umd)],
@@ -34,7 +31,7 @@ const inputOptions = {
     }),
     json(),
     nodeResolve({
-      extensions // 也需要加上解析.ts
+      extensions: config.extensions // 也需要加上解析.ts
     }),
     commonjs({ include: '**' }),
     // postcss({
@@ -48,7 +45,7 @@ const inputOptions = {
       // npm i -D @babel/plugin-transform-runtime
       // 自动添加 “非实例方法”的polyfill 而且还是闭包作用域非全局 很适合库的构建
       runtimeHelpers: true, // transform-runtime
-      extensions, // Babel应该转换的文件扩展名数组
+      extensions: config.extensions, // Babel应该转换的文件扩展名数组
     }),
     progress(),
     isPrd && terser(),

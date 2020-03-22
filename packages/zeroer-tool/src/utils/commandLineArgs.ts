@@ -1,5 +1,6 @@
 // 不管是主进程还是子进程 都能拿到主进程的命令行参数 (透传)
 import minimist from 'minimist'
+import { defaultCommandLineArgs } from '../types'
 
 const COMMANDLINEARGS = 'COMMANDLINEARGS'
 
@@ -16,14 +17,14 @@ const passthroughCommandLineArgs = `--${COMMANDLINEARGS} ${isMainProcess ? JSON.
 const mockPassthroughCommandLineArgs = `--${COMMANDLINEARGS} ${JSON.stringify(JSON.stringify(args))}`
 
 interface TopArgs {
-  project?: string;
-  P?: string;
-  clear?: boolean;
-  C?: boolean;
+  V?: boolean;
+  version?: boolean;
+  D?: boolean;
+  debug?: boolean;
+  h?: boolean;
   help?: boolean;
-  H?: boolean;
-  // TODO 如果以后编译成js 可以考虑 -T ts源码执行
-  _: Array<'server' | 'build:dev' | 'build:prd' | 'dll' | 'analyzer:dev' | 'analyzer:prd' | 'mock' | 'test'>;
+  c: string;
+  config: string;
   [other: string]: any;
 }
 
@@ -31,9 +32,7 @@ interface TopArgs {
 const topArgs: TopArgs = isMainProcess ? args : JSON.parse(args[COMMANDLINEARGS])
 
 const commandLineArgs = {
-  project: topArgs.project ?? topArgs.P ?? 'project.config.ts',
-  clear: topArgs.clear ?? topArgs.C ?? false,
-  help: topArgs.help ?? topArgs.H ?? false,
+  config: topArgs.c ?? topArgs.config ?? defaultCommandLineArgs.config,
   _: topArgs._
 }
 
