@@ -26,6 +26,7 @@ class Event {
       this.events[eventName] = [fn]
     }
   }
+
   /**
    * 发布事件
    * @example
@@ -38,6 +39,7 @@ class Event {
       }
     }
   }
+
   /**
    * 取消订阅
    * @example
@@ -66,6 +68,7 @@ class Event {
       this.events = {}
     }
   }
+
   /**
    * 订阅一次事件
    * @example

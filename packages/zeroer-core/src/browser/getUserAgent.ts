@@ -20,7 +20,7 @@ const getUserAgent = () => {
 
     // 版本
     version: ua.match(/(edge|msie|firefox|chrome|version).*?([\d.]+)/) ? (ua.match(/(msie|firefox|opera|chrome|version).*?([\d.]+)/) as RegExpMatchArray)[2] : '未知',
-    
+
     // 浏览器类型
     browserType: (() => {
       if ((window as any).attachEvent && (ua.includes('edge') || ua.includes('msie') || ua.includes('trident'))) return 'Ie'

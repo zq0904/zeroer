@@ -20,21 +20,21 @@ const format = (date: Nsd, f = 'YYYY-MM-DD HH:mm:ss') => {
   const gMi = d.getMinutes()
   const gS = d.getSeconds()
   const map = {
-    'YYYY': gF, // 年
-    'YY': gF.toString().substr(2), // 年
-    'MM': complement(gMo + 1, 2), // 月
-    'M': gMo + 1, // 月
-    'DD': complement(gD, 2), // 日
-    'D': gD, // 日
-    'HH': complement(gH, 2), // 24时
-    'H': gH, // 24时
-    'hh': complement(gH % 12, 2), // 12时
-    'h': gH % 12, // 12时
-    'mm': complement(gMi, 2), // 分
-    'm': gMi, // 分
-    'ss': complement(gS, 2), // 秒
-    's': gS, // 秒
-    'a': gH <= 12 ? 'AM' : 'PM' // 上下午
+    YYYY: gF, // 年
+    YY: gF.toString().substr(2), // 年
+    MM: complement(gMo + 1, 2), // 月
+    M: gMo + 1, // 月
+    DD: complement(gD, 2), // 日
+    D: gD, // 日
+    HH: complement(gH, 2), // 24时
+    H: gH, // 24时
+    hh: complement(gH % 12, 2), // 12时
+    h: gH % 12, // 12时
+    mm: complement(gMi, 2), // 分
+    m: gMi, // 分
+    ss: complement(gS, 2), // 秒
+    s: gS, // 秒
+    a: gH <= 12 ? 'AM' : 'PM' // 上下午
   }
   type Key = keyof typeof map
   for (const key in map) {
