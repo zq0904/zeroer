@@ -2,29 +2,29 @@
   "compilerOptions": {
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
-    "target": "ESNEXT",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'. */
-    "module": "ESNext",                       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "target": "ESNEXT",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+    "module": "ESNext",                       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     // "lib": [],                             /* Specify library files to be included in the compilation. */
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
-    "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "declaration": true,                      /* 生成相应的 '.d.ts' 文件 */
+    // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    "declaration": true,                      /* 生成相应的 '.d.ts' 文件。 */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    // "outDir": "",                          /* 输出目录 */
-    "rootDir": "./src",                       /* 输入根目录 */
+    // "outDir": "",                          /* Redirect output structure to the directory. */
+    "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
-    // "removeComments": true,                /* 删除注释 */
+    // "removeComments": true,                /* Do not emit comments to output. */
     // "noEmit": true,                        /* Do not emit outputs. */
     // "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
-    "downlevelIteration": true,               /* 当目标为“ES5”或“ES3”时，为“for-of”、“spread”和“destructuring”中的迭代器提供完全支持 */
+    "downlevelIteration": true,               /* 当目标为“ES5”或“ES3”时，为“for-of”、“spread”和“destructuring”中的迭代提供完全支持。 */
     // "isolatedModules": true,               /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
 
     /* Strict Type-Checking Options */
-    "strict": true,                           /* 启用严格的类型检查 */
-    "noImplicitAny": true,                    /* 使用隐含的“any”类型在表达式和声明上引发错误 */
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                    /* 使用隐含的“any”类型在表达式和声明上引发错误。 */
     // "strictNullChecks": true,              /* Enable strict null checks. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
@@ -39,15 +39,14 @@
     // "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
 
     /* Module Resolution Options */
-    // node_modules/@types/react/index.d.ts Cannot find module 'csstype import * as CSS from 'csstype'; 需要开启"moduleResolution": "node"
-    "moduleResolution": "node",               /* 指定模块解析策略: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "moduleResolution": "node",               /* 指定模块解析策略:'node' (node .js)或'classic' (TypeScript pre-1.6)。 */
     // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
     // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-    "esModuleInterop": true,                  /* 通过为所有导入创建命名空间对象 支持CommonJS和ES模块之间的互操作性 */
+    "esModuleInterop": true,                  /* 通过为所有导入创建命名空间对象，支持CommonJS和ES模块之间的互操作性。意味着“allowSyntheticDefaultImports”。 */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
     // "allowUmdGlobalAccess": true,          /* Allow accessing UMD globals from modules. */
 
@@ -58,7 +57,19 @@
     // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
 
     /* Experimental Options */
-    "experimentalDecorators": true,           /* 启用对ES7装饰器的实验性支持 */
+    "experimentalDecorators": true,           /* 启用对ES7装饰器的实验性支持。 */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
-  }
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+  },
+  "exclude": [
+    "node_modules",
+    "umd",
+    "cjs",
+    "esm",
+    "esm-streamline",
+    "./project.config.ts",
+    "./package.json"
+  ]
 }

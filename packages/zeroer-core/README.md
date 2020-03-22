@@ -10,11 +10,12 @@
 ## 命令
 ```
   npm run dev // 开发模式 (使用browsersync 支持proxy中间件)
-  npm run build:all // 构建 umd版本 cjs版本 esm版本 esm-streamline版本
+  npm run build:all // 构建 umd版本 cjs版本 esm版本 esm-streamline版本 自动发出声明文件
   npm run build:umd // 构建 umd版本
   npm run build:cjs // 构建 cjs版本
   npm run build:esm // 构建 esm版本
   npm run build:esm-streamline // 构建 esm-streamline版本
+  npm run build:types // 只发出声明文件
   npm run lint // 检测eslint错误 和 ts类型错误 (eslint + vscode 配置好 可以完全忽略)
 ```
 ## 安装及使用
@@ -61,11 +62,8 @@
   ```
 ## TODO
 ```
-  使用脚本 优化npm run build构建命令（设想 约定优于配置 types 只构建一次 cjs esm esm-streamline 都使用这个声明文件 package.json去掉types 默认取所选取版本目录的index.d.ts）
-  zeroer-tool工具抽取
-  uA 判断的完善 // 移动端未测试
-  hook 目录的取舍问题 引入lerna后 我仍希望发正式版的包必须是主干！
-  对react组件 .tsx .less 的支持 后期考虑去除（rollup尽量只用于构建纯js的项目 像ui库 最好还是使用webpack去构建）
+  hook 目录的迁移问题 // 使用lerna发包如何保障每个包都进行过最新的编译
+  getUserAgent 未完善 // 移动端未测试
   单元测试 集成部署测试
   覆盖率测试
 ```
