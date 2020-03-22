@@ -1,26 +1,26 @@
 {
   "name": "zeroer-tool",
-  "version": "0.0.1-alpha.0",
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bin": {
-    "zeroer-tool": "./src/index.ts"
-  },
-  "author": "zhaoqi <154809748@qq.com>",
-  "description": "zeroer kit",
+  "version": "0.0.1-beta.1",
+  "description": "``` a set of build tools for UI and pure js ```",
   "keywords": [
     "zeroer",
     "tool"
   ],
-  "license": "ISC",
+  "author": "zhaoqi <154809748@qq.com>",
   "main": "src/index.js",
+  "bin": {
+    "zeroer-tool": "./src/index.ts"
+  },
+  "types": "./src/types",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zq0904/zeroer.git",
     "directory": "packages/zeroer-tool"
   },
-  "files": [],
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
@@ -45,6 +45,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "execa": "^4.0.0",
     "fs-extra": "^8.1.0",
+    "minimist": "^1.2.5",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-browsersync": "^1.1.0",
@@ -52,12 +53,13 @@
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-terser": "^5.3.0",
-    "ts-node": "^8.6.2",
+    "ts-node": "^8.8.1",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.9.2",
     "@types/fs-extra": "^8.1.0",
+    "@types/minimist": "^1.2.0",
     "@types/rollup-plugin-progress": "^1.1.0"
   },
   "peerDependencies": {
