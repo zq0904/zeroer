@@ -1,0 +1,66 @@
+{
+  "name": "zeroer-tool",
+  "version": "0.0.1-alpha.0",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bin": {
+    "zeroer-tool": "./src/index.ts"
+  },
+  "author": "zhaoqi <154809748@qq.com>",
+  "description": "zeroer kit",
+  "keywords": [
+    "zeroer",
+    "tool"
+  ],
+  "license": "ISC",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zq0904/zeroer.git",
+    "directory": "packages/zeroer-tool"
+  },
+  "files": [],
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "execa": "^4.0.0",
+    "fs-extra": "^8.1.0",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-browsersync": "^1.1.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-progress": "^1.1.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@babel/runtime-corejs3": "^7.9.2",
+    "@types/fs-extra": "^8.1.0",
+    "@types/rollup-plugin-progress": "^1.1.0"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "^7.8.7"
+  }
+}
