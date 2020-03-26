@@ -5,7 +5,7 @@ import { TimeId } from '../types'
  * @example
  * window.addEventListener('scroll', throttle(function() {}, 300))
  */
-const throttle = (fn: Function, time = 300) => {
+const throttle = (fn: Function, time = 16) => {
   let before = -Infinity
   let timeId: TimeId
   return function (this: any, ...args: any[]) {
