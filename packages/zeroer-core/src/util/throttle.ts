@@ -3,7 +3,7 @@ import { TimeId } from '../types'
 /**
  * 函数节流（一定时间内函数只能执行一次 多次执行会推迟到下个周期 常用于scroll事件以节省性能）
  * @example
- * window.addEventListener('scroll', throttle(function() {}, 300))
+ * window.addEventListener('scroll', throttle(function() {}, 16))
  */
 const throttle = (fn: Function, time = 16) => {
   let before = -Infinity
