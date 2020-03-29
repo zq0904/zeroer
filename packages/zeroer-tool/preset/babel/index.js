@@ -28,7 +28,7 @@ module.exports = () => ({
     ['@babel/plugin-transform-runtime', { corejs }],
     ['@babel/plugin-proposal-decorators', { legacy: true }], // 装饰器语法支持 必须在@babel/plugin-proposal-class-properties之前使用
     ['@babel/plugin-proposal-class-properties', { loose: true }], // class属性支持
-    // ['@babel/plugin-proposal-export-default-from], // export d from './module' (https://github.com/tc39/proposal-export-default-from)
-    // ['@babel/plugin-proposal-export-namespace-from] // export * as all from './module' (https://github.com/tc39/proposal-export-ns-from) // ts 3.8将支持
+    // ['@babel/plugin-proposal-export-default-from'], // export d from './module' (https://github.com/tc39/proposal-export-default-from)
+    ['@babel/plugin-proposal-export-namespace-from'] // export * as all from './module' (https://github.com/tc39/proposal-export-ns-from) // ts3.8支持 @babel/preset-env@3.9仍不包含
   ]
 })
