@@ -42,6 +42,8 @@
     + 针对“类cli”包 可以尝试先安装这个cli包（实际上先把依赖装到node_modules下）在使用npm link <pkg_name>
 ## TODO
 ```
-  1.script/release.js execA执行 git commit -m 'chore(release): publish' 报错问题 暂时使用execP代替
-  2.npx lerna bootstrap 使用hoist参数 // zeorer-core 中 rollup rollup-plugin-node-resolve模块解析算法有问题 [参见](https://github.com/lerna/lerna/blob/master/doc/hoist.md)
+  2. babel env 8.6+ 更新
+  3. 下载模板包及命令 编写
+  4. script/release.js execA执行 git commit -m 'chore(release): publish' 报错问题 暂时使用execP代替
+  5. npx lerna bootstrap 使用hoist参数 // zeorer-core 中 rollup rollup-plugin-node-resolve模块解析算法有问题 [参见](https://github.com/lerna/lerna/blob/master/doc/hoist.md)
 ```
