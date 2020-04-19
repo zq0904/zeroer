@@ -28,7 +28,7 @@
     "@babel/runtime-corejs3": "^7.8.7"
   },
   "devDependencies": {
-    "zeroer-tool": "^0.0.1"
+    "zeroer-tool": "0.0.2-beta.0"
   },
   "license": "ISC",
   "repository": {
