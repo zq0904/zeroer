@@ -8,7 +8,14 @@ import { Days } from '../types'
 export const getDefaultOtherAttributes = () => {
   if (isUndefined(location)) return {}
   const arr = location.hostname.split('.')
-  const domain = arr.splice(arr.length - 2).join('.')
+  let domain = ''
+  if (arr.length === 4 && arr.every(v => !isNaN(Number(v)))) {
+    // IP
+    domain = location.hostname
+  } else {
+    // 根域
+    domain = arr.splice(arr.length - 2).join('.')
+  }
   return {
     domain,
     path: '/'
