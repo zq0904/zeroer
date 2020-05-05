@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.1.0...fe-z-pc.v1@0.1.1) (2020-05-05)
+
+
+### Features
+
+* 更新依赖 ([eeb105c](https://github.com/zq0904/zeroer/commit/eeb105c3ea139f8a53d947d709b00f6c55ce6341))
+
+
+
+
+
 # [0.1.0](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.0.5...fe-z-pc.v1@0.1.0) (2020-05-05)
 
 
