@@ -14,12 +14,13 @@ console.log('array.subtract ', z.array.subtract([1, 2, 3], [2, 3]))
 console.log('browser.userAgent', z.browser.getUserAgent())
 
 // cookie
-z.cookie.set('a', 'aVal', '2019/09/04 16:50') // 存储到'2019/09/04 16:50'
-z.cookie.set('b', 'bVal', 1, '/') // 存储1天
-z.cookie.set('c', 'cVal') // 当前会话期间
-// z.cookie.del('b', '/')
+z.cookie.set('a', 'a我', { expires: '2019/09/04 16:50' }) // 存储到'2019/09/04 16:50' doman默认就是“根域” path默认'/'
+z.cookie.set('b', 'b她', { expires: 1, path: '' }) // 存储1天
+z.cookie.set('c', 'c它', { SameSite: 'Strict' }) // 当前会话期间
+// z.cookie.del('b', { path: '' })
 console.log(
   'cookie.get ',
+  z.cookie.get(),
   z.cookie.get('a'),
   z.cookie.get('b'),
   z.cookie.get('c')
@@ -60,7 +61,7 @@ event.emit('customEventName3', 3)
 z.localStorage.setItem('a', { a: 1 }) // 随浏览器进程
 z.localStorage.setItem('b', { b: 1 }, 1) // 存1天
 z.localStorage.setItem('c', { c: 1 }, '2020/03/07')
-// z.localStorage.removeItem('c')
+// z.localStorage.removeItem('b')
 // z.localStorage.clear()
 console.log(
   'localStorage.getItem ',
@@ -115,14 +116,14 @@ console.log(
 )
 
 // sessionStorage
-z.sessionStorage.setItem('a', { a: 1 })
+z.sessionStorage.setItem('a我', { a: 1 })
 z.sessionStorage.setItem('b', '1')
 z.sessionStorage.setItem('c', 1)
-// z.sessionStorage.clear()
-z.sessionStorage.removeItem('b')
+z.sessionStorage.clear()
+// z.sessionStorage.removeItem('b')
 console.log(
   'sessionStorage.getItem ',
-  z.sessionStorage.getItem('a'),
+  z.sessionStorage.getItem('a我'),
   z.sessionStorage.getItem('b'),
   z.sessionStorage.getItem('c'),
 )

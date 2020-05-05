@@ -16,7 +16,7 @@ const getCookieSessionTime = () => {
     return +time
   } else {
     const now = '-' + Date.now()
-    set(COOKIESSSION_TIME, now, false, '/') // 随浏览器进程
+    set(COOKIESSSION_TIME, now) // 随浏览器进程
     return +now
   }
 }

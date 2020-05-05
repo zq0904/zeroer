@@ -10,7 +10,11 @@ const clear = () => {
   if (isTrace()) {
     for (const v of document.cookie.split(';')) {
       const name = v.split('=')[0].trim()
-      name.startsWith(PREFIX) && del(name)
+      try {
+        name.startsWith(PREFIX) && del(decodeURIComponent(name))
+      } catch (err) {
+        console.error(err)
+      }
     }
   } else {
     for (const name of Object.keys(sessionStorage)) {

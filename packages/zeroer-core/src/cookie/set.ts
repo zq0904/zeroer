@@ -1,27 +1,50 @@
 import { toTimeStamp } from '../lib'
-import { Days } from '../types'
+import isUndefined from '../object/isUndefined'
+import isString from '../object/isString'
+import { getDefaultOtherAttributes, OtherAttributes } from './lib'
 
 /**
- * 设置cookie
+ * 设置cookie 返回值表示是否设置成功
  * @example
- * set('a', 'aVal', '2019/09/04 16:50') // 存储到'2019/09/04 16:50'
- * set('b', 'bVal', 1, '/') // 存储1天
  * set('c', 'cVal') // 当前会话期间
+ * set('b', 'bVal', { expires: 1 }) // 存储1天
+ * set('a', 'aVal', { expires: '2019/09/04 16:50' }) // 存储到'2019/09/04 16:50'
  */
-const set = (name: string, val: string, days: Days | false = false, path?: string, domain?: string, secure = false) => {
-  let expires: string | boolean
-  if (days === false) {
-    expires = false // 过期时间为 session 当前会话期间（浏览器完全关闭）
-  } else {
+const set = (key: string, value: string, otherAttributes: OtherAttributes = {}) => {
+  if (isUndefined(document)) return false
+
+  const attributes = Object.assign(
+    {},
+    getDefaultOtherAttributes(),
+    otherAttributes
+  )
+
+  if (!isUndefined(attributes.expires)) {
     const date = new Date()
-    date.setTime(toTimeStamp(days))
-    expires = date.toUTCString()
+    date.setTime(toTimeStamp(attributes.expires))
+    attributes.expires = date.toUTCString()
   }
-  document.cookie = name + '=' + encodeURIComponent(val) +
-    (expires ? (';expires=' + expires) : '') +
-    (path ? (';path=' + path) : '') + // 例如 '/' '/home' 默认为当前文档位置的路径（如果是 www.zeroer.cc/home/index.html -> 默认就是 /home）
-    (domain ? (';domain=' + domain) : '') + // 例如 'zeroer.cc' 'www.zeroer.cc' 默认为当前文档位置的路径的域名部分（如果是 www.zeroer.cc/home/index.html -> 默认就是 www.zeroer.cc）
-    (secure ? ';secure' : '') // cookie只通过https协议传输
+
+  let attributesString = ''
+  // 也可以使用 for in + Object.prototype.hasOwnProperty.call 代替
+  const attributesKeys = Object.keys(attributes)
+  for (const attributesName of attributesKeys) {
+    // @ts-ignore
+    const v = attributes[attributesName]
+    if (!v) continue
+    attributesString += '; ' + attributesName
+    if (isString(v)) {
+      attributesString += '=' + v.split(';')[0] // 健壮性兼容
+    }
+  }
+
+  try {
+    document.cookie = encodeURIComponent(key) + '=' + encodeURIComponent(value) + attributesString
+    return true
+  } catch (err) {
+    console.error(err)
+    return false
+  }
 }
 
 export default set
