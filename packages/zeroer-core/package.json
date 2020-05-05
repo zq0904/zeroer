@@ -1,6 +1,6 @@
 {
   "name": "zeroer-core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "``` zeroer-core core library ```",
   "keywords": [
     "zeroer",
@@ -28,7 +28,7 @@
     "@babel/runtime-corejs3": "^7.8.7"
   },
   "devDependencies": {
-    "zeroer-tool": "0.0.2-beta.0"
+    "zeroer-tool": "^0.1.0"
   },
   "license": "ISC",
   "repository": {

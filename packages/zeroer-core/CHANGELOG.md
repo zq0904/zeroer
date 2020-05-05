@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/zq0904/zeroer/compare/zeroer-core@1.0.0...zeroer-core@1.1.0) (2020-05-05)
+
+
+### Bug Fixes
+
+* ip ([a786e6e](https://github.com/zq0904/zeroer/commit/a786e6e176acef38abb9d187d3e33d94ae8dd412))
+* 修改throttle默认值 16ms 参考60fps ([b53b4c6](https://github.com/zq0904/zeroer/commit/b53b4c61908f0ac5d4b5f38602bb667460e24903))
+
+
+### Features
+
+* 修改 throttle JSDoc 例子 ([60775bc](https://github.com/zq0904/zeroer/commit/60775bc819a3547a9b14dc6b28aa2792c3bf5a53))
+* 更新包 ([b6abd4e](https://github.com/zq0904/zeroer/commit/b6abd4e004e8e2b1862eb323683e2721b30e437a))
+
+
+
+
+
 # [1.0.0](https://github.com/zq0904/zeroer/compare/zeroer-core@0.0.1...zeroer-core@1.0.0) (2020-03-22)
 
 

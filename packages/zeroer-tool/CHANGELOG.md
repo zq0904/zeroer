@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/zq0904/zeroer/compare/zeroer-tool@0.0.1...zeroer-tool@0.1.0) (2020-05-05)
+
+
+### Features
+
+* ts3.8升级 ([8dd24e2](https://github.com/zq0904/zeroer/commit/8dd24e2504f2e2474a49192aebdc0edc7a1eb3cd))
+
+
+
+
+
 ## 0.0.1 (2020-03-22)
 
 

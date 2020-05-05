@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.0.5...fe-z-pc.v1@0.1.0) (2020-05-05)
+
+
+### Bug Fixes
+
+* mobx-react@6.1.7 ems版const没编译 导致打包的dll文件ie全跪 ([56a3c2b](https://github.com/zq0904/zeroer/commit/56a3c2b0f5c53042a67e1006213c12553026d62c))
+
+
+### Features
+
+* 更新 ([5fa7120](https://github.com/zq0904/zeroer/commit/5fa7120bab1ede0bf2a4feace4251effb49f04ce))
+
+
+
+
+
 ## [0.0.5](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.0.4...fe-z-pc.v1@0.0.5) (2020-03-22)
 
 
