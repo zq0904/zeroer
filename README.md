@@ -30,7 +30,7 @@
   | improvement | 对当前特性的改进 |
   | docs | 只改变文档 |
   | style | 不影响代码含义的更改(空格、格式、缺少分号等) |
-  | refactor | 既不修复bug也不添加特性的代码更改 |
+  | refactor | 重构 既不修复bug也不添加特性的代码更改 |
   | perf | 改进性能的代码更改 |
   | test | 添加缺失的测试或修改现有的测试 |
   | build | 影响构建系统或外部依赖项的更改(例如作用域:gulp、broccoli、npm) |
