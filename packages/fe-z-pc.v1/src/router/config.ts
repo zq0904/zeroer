@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { lazy } from 'react'
 import { RouteConfig } from './renderRoutes'
-import { PATH_JOB_CREATE, PATH_JOB_LIST } from './path'
+import { PATH_JOB_CREATE, PATH_JOB_LIST, PATH_TODO_LIST } from './path'
 import { Path, LocationDescriptorObject, Location } from 'history'
 import { matchRoutes } from './matchRoutes'
 
@@ -12,6 +12,7 @@ import { matchRoutes } from './matchRoutes'
 
 const JobCreate = lazy(() => import(/* webpackChunkName: 'JobCreate', webpackPrefetch: true */'@/pages/JobCreate'))
 const JobList = lazy(() => import(/* webpackChunkName: 'JobList', webpackPrefetch: true */'@/pages/JobList'))
+const ExampleTodoList = lazy(() => import(/* webpackChunkName: 'ExampleTodoList', webpackPrefetch: true */'@/pages/ExampleTodoList'))
 
 const rootRoutes: RouteConfig[] = [
   {
@@ -27,6 +28,10 @@ const rootRoutes: RouteConfig[] = [
   {
     path: PATH_JOB_LIST,
     component: JobList
+  },
+  {
+    path: PATH_TODO_LIST,
+    component: ExampleTodoList
   }
 ]
 

@@ -1,0 +1,10 @@
+.todo-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid orange;
+  &-input-checkbox {
+    margin-right: 100px;
+  }
+  &-input-text {}
+}

@@ -1,0 +1,21 @@
+.todo-footer {
+  display: flex;
+  justify-content: center;
+  // border: 1px solid red;
+  ol {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    li {
+      cursor: pointer;
+      &.on {
+        background-color: blue;
+      }
+    }
+  }
+  &-del-complete {
+    cursor: pointer;
+    background-color: red;
+  }
+}
