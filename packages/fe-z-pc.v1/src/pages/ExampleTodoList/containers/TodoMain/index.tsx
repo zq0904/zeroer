@@ -1,5 +1,5 @@
-import { connect } from 'react-redux'
-import { State, Dispatch } from '../../store'
+import { connect, ConnectedProps } from 'react-redux'
+import { State } from '../../store'
 import { TodoList, FilterType } from '../../types'
 import { createTodoListAction } from '../../actions'
 import TodoMain from '../../module/TodoMain'
@@ -19,26 +19,21 @@ function filterTodoListByFilterType (list: TodoList, filterType: FilterType) {
   }
 }
 
-export type MapStateToProps = ReturnType<typeof mapStateToProps>
-
-function mapStateToProps (state: State, ownProps: { filterType: FilterType }) {
-  return {
-    list: state.todos.list,
-    filterTodoList: filterTodoListByFilterType(state.todos.list, ownProps.filterType)
-  }
+interface OwnProps {
+  filterType: FilterType;
 }
 
-export type MapDispatchToProps = ReturnType<typeof mapDispatchToProps>
+const mapStateToProps = (state: State, ownProps: OwnProps) => ({
+  list: state.todos.list,
+  filterTodoList: filterTodoListByFilterType(state.todos.list, ownProps.filterType)
+})
 
-function mapDispatchToProps (dispatch: Dispatch) {
-  return {
-    setTodoList (payload: TodoList) {
-      dispatch(createTodoListAction(payload))
-    }
-  }
+const mapDispatchToProps = {
+  setTodoList: (payload: TodoList) => createTodoListAction(payload)
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoMain)
+const connector = connect(mapStateToProps, mapDispatchToProps)
+
+export type PropsFromRedux = ConnectedProps<typeof connector> & OwnProps
+
+export default connector(TodoMain)

@@ -2,16 +2,12 @@ import React, { FC } from 'react'
 import classnames from 'classnames'
 import { NavLink } from 'react-router-dom'
 import { PropsFromRedux } from '../../containers/TodoFooter'
-import { FilterType, filterTypes, MapFilterTypeToText } from '../../types'
+import { filterTypes, MapFilterTypeToText } from '../../types'
 import './index.scss'
 
 const clsPrefix = 'todo-footer'
 
-export interface OwnProps {
-  filterType: FilterType;
-}
-
-const TodoFooter: FC<PropsFromRedux & OwnProps> = ({ list, filterType, setTodosList }) => {
+const TodoFooter: FC<PropsFromRedux> = ({ list, filterType, setTodosList }) => {
   if (list.length === 0) return null
 
   /**

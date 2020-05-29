@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import TodoHeader from './containers/TodoHeader'
 import TodoMain from './containers/TodoMain'
 import TodoFooter from './containers/TodoFooter'
+import TestHook from './module/TestHook'
 import store from './store'
 import { filterTypes, FilterType } from './types'
 import './index.scss'
@@ -22,8 +23,13 @@ const ExampleTodoList: FC<ExampleTodoListProps> = ({ match }) => {
       <TodoHeader />
       <TodoMain filterType={filterType} />
       <TodoFooter filterType={filterType} />
+      <TestHook />
     </Provider>
   )
 }
 
 export default ExampleTodoList
+
+// npm i redux react-redux @types/react-redux redux-thunk
+// npm i redux-saga
+// npm i @reduxjs/toolkit

@@ -1,13 +1,11 @@
 import React, { FC } from 'react'
 import classnames from 'classnames'
-import { MapStateToProps, MapDispatchToProps } from '../../containers/TodoMain'
+import { PropsFromRedux } from '../../containers/TodoMain'
 import './index.scss'
 
 const clsPrefix = 'todo-main'
 
-type TodoMainProps = MapStateToProps & MapDispatchToProps
-
-const TodoMain: FC<TodoMainProps> = ({ list, filterTodoList, setTodoList }) => {
+const TodoMain: FC<PropsFromRedux> = ({ list, filterTodoList, setTodoList }) => {
   if (list.length === 0) return null
 
   return (

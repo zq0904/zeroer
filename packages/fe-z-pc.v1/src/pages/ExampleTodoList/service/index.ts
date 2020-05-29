@@ -25,6 +25,6 @@ const request = (uri: string): any => new Promise(resolve => {
 })
 
 interface GetTodoList {
-  (): Promise<{ flag: 0 | 1; data: { list: TodoList } }>;
+  (): Promise<{ flag: 0 | 1; msg?: string ; data: { list: TodoList } }>;
 }
 export const getTodoList: GetTodoList = () => request(TODO_LIST_URI)

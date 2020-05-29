@@ -4,7 +4,7 @@ import './index.scss'
 
 const clsPrefix = 'todo-header'
 
-const TodoHeader: FC<PropsFromRedux> = ({ list, setTodoList }) => {
+const TodoHeader: FC<PropsFromRedux> = ({ list, setTodoList, asyncGetTodoList }) => {
   const [val, setVal] = useState('')
 
   /**
@@ -42,6 +42,11 @@ const TodoHeader: FC<PropsFromRedux> = ({ list, setTodoList }) => {
     setVal('')
   }
 
+  /**
+   * 发起一个异步请求
+   */
+  const handleSendAsyncRequest = () => asyncGetTodoList()
+
   return (
     <div className={clsPrefix}>
       {
@@ -61,7 +66,7 @@ const TodoHeader: FC<PropsFromRedux> = ({ list, setTodoList }) => {
         onChange={handleInputTextChange}
         onKeyDown={handleKeyDown}
       />
-      <button>发起一个异步请求</button>
+      <button onClick={handleSendAsyncRequest}>发起一个异步请求</button>
     </div>
   )
 }
