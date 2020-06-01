@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react'
 import { RouteConfigComponentProps, renderRoutes } from '@/router'
 import { useObserver } from 'mobx-react'
 import { useStore } from '@/store'
+import { useRefresh } from '../../store/utils'
 import { savePicture } from '@/services'
 import { InternalProps, ExternalProps } from '@/common/ts'
 import Title from '@/components/Title'
@@ -17,7 +18,11 @@ interface JobCreateProps extends RouteConfigComponentProps {
 
 const JobCreate: FC<InternalProps<typeof defaultProps, JobCreateProps>> = ({ a, route }) => {
   const { jobCreateStore } = useStore()
+
+  const refresh = useRefresh()
+
   const handleChangeCheckbox = (checkedValues: string[]) => jobCreateStore.setStore({ language: checkedValues })
+
   const hanldeChangeFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.[0]) return
     const formData = new FormData()
@@ -29,9 +34,11 @@ const JobCreate: FC<InternalProps<typeof defaultProps, JobCreateProps>> = ({ a, 
       console.error(err)
     }
   }
+
   useEffect(() => {
     console.log('JobCreate componentDidMount')
   }, [])
+
   return useObserver(() => (
     <div className="job-create">
       <Title>创建职位</Title>
@@ -78,6 +85,9 @@ const JobCreate: FC<InternalProps<typeof defaultProps, JobCreateProps>> = ({ a, 
       {
         renderRoutes(route?.routes ?? [])
       }
+      <p>
+        <button onClick={() => refresh()}>重载这个页面 但不刷新 通过key 来改变</button>
+      </p>
     </div>
   ))
 }
