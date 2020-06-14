@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.5...zeroer-cli@0.0.6) (2020-06-14)
+
+
+### Bug Fixes
+
+* 由于antd依赖部分lodash方法 配置了noParse 导致不解析require ([7f3fc87](https://github.com/zq0904/zeroer/commit/7f3fc879489f4f3d71c8a992bb5f5826354afeb2))
+
+
+
+
+
 ## [0.0.5](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.4...zeroer-cli@0.0.5) (2020-03-22)
 
 

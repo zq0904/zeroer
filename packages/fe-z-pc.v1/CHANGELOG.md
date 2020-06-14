@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.1.1...fe-z-pc.v1@0.1.2) (2020-06-14)
+
+
+### Bug Fixes
+
+* axios headers 解析为小写的问题 ([a39fa78](https://github.com/zq0904/zeroer/commit/a39fa78cfdbcc8a936472737a4b1289f73dabc1e))
+
+
+### Features
+
+* 添加通过key 重载页面但不刷新页面的全局方法 ([855f90f](https://github.com/zq0904/zeroer/commit/855f90fa59e50c1f58e1b358a3fbd293fb0f90f9))
+
+
+
+
+
 ## [0.1.1](https://github.com/zq0904/zeroer/compare/fe-z-pc.v1@0.1.0...fe-z-pc.v1@0.1.1) (2020-05-05)
 
 
