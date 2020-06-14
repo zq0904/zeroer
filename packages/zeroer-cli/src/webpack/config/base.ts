@@ -54,7 +54,9 @@ const base: Webpack.Configuration = {
   //   }
   // }
   module: {
-    noParse: /jquery|lodash/, // 设置一些内部明确没有依赖的库 阻止webpack解析其内部依赖 提高构建性能
+    // 设置一些内部明确没有依赖的库 阻止webpack解析其内部依赖 提高构建性能
+    // 注意 使用antd内部会依赖部分lodash的方法 是包含require的 所以不能忽略（除非你是全部导入lodash 是不包含依赖的）
+    // noParse: /jquery|lodash/,
     rules,
   },
   plugins,
