@@ -11,7 +11,7 @@ const paths = {
     src: `${projectRootPath}/src`,
     public: `${projectRootPath}/public`,
     dll: `${projectRootPath}/public/dll`, // dll 的输出目录
-    distPath: `${projectRootPath}/${isPrd ? 'dist-prd' : 'dist-dev'}`, // 编译输出的目录
+    distPath: `${projectRootPath}/${isPrd ? 'dist' : 'dist-dev'}`, // 编译输出的目录
   },
   // cli
   cli: {
