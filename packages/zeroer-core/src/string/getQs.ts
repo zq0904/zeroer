@@ -13,8 +13,8 @@ interface GetParameter {
 interface GetQs {
   (): Obj;
   (key: string): string | undefined;
-  (key: { url: string; }): Obj;
-  (key: { url: string; data: string; }): string | undefined;
+  (key: { url: string }): Obj;
+  (key: { url: string; data: string }): string | undefined;
 }
 
 /**
