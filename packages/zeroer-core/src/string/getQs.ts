@@ -7,6 +7,15 @@ interface GetParameter {
   url: string;
   data?: string;
 }
+/**
+ * getQs重载
+ */
+interface GetQs {
+  (): Obj;
+  (key: string): string | undefined;
+  (key: { url: string; }): Obj;
+  (key: { url: string; data: string; }): string | undefined;
+}
 
 /**
  * 根据url 获取查询字符串的值
@@ -17,7 +26,7 @@ interface GetParameter {
  * getQs({ url: 'http://localhost:4321/test/api.html?a=1&b=2#hash' }) // { a: '1', b: '2' }
  * getQs({ url: 'http://localhost:4321/test/api.html?a=1&b=2#hash', data: 'a' }) // '1'
  */
-const getQs = (key?: string | GetParameter): string | Obj | undefined => {
+const getQs: GetQs = (key?: string | GetParameter) => {
   if (isObject(key)) {
     const { url, data } = key
     let href = url
