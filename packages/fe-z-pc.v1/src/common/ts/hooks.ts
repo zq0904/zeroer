@@ -14,7 +14,7 @@ export const useDidUpdate = (fn: () => any, deps?: React.DependencyList) => {
   }, deps)
 }
 
-export const useWillMount = (fn: ReturnType<EffectCallback>) => {
+export const useWillUnmount = (fn: ReturnType<EffectCallback>) => {
   useEffect(() => fn, [])
 }
 
