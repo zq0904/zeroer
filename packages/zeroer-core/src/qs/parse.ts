@@ -8,13 +8,13 @@ import { Obj } from '../types'
  * parse('a=1&b%5Bc%5D=c&b%5Bd%5D%5Be%5D=e&b%5Bd%5D%5Br%5D%5Ba%5D=1&c=3') // { a: '1', b: {…}, c: '3' }
  */
 const parse = (str: string): Obj => {
-  if (!isString(str)) return {}
-  return decodeURIComponent(str).split('&').reduce((before, v) => {
+  if (str === '' || !isString(str)) return {}
+  return str.split('&').reduce((before, v) => {
     const [key, val] = v.split('=') // ['a', '1'] ['b[c]', 'c']
     const o = {}
-    const arr = key.replace(/^(.+?)(\[.+)\]$/, '$1]$2').split('][') // ['a'] ['b', 'c']
+    const arr = decodeURIComponent(key).replace(/^(.+?)(\[.+)\]$/, '$1]$2').split('][') // ['a'] ['b', 'c']
     arr.reduce((b: Obj, a, i) => {
-      return b[a] = i === arr.length - 1 ? val : {}
+      return b[a] = i === arr.length - 1 ? decodeURIComponent(val) : {}
     }, o)
     return extend(true, before, o)
   }, {})
