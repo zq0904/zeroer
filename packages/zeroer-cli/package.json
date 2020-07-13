@@ -1,6 +1,6 @@
 {
   "name": "zeroer-cli",
-  "version": "0.0.7-beta.3",
+  "version": "0.0.7",
   "description": "",
   "main": "",
   "types": "./src/types",

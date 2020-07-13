@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.6...zeroer-cli@0.0.7) (2020-07-13)
+
+
+### Features
+
+* 迎合 arthurci公司上线系统 ([64b89b0](https://github.com/zq0904/zeroer/commit/64b89b0b11af8851c5e57cf8b2527490fae8c7d0))
+
+
+
+
+
 ## [0.0.6](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.5...zeroer-cli@0.0.6) (2020-06-14)
 
 

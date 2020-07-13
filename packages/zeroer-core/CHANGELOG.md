@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/zq0904/zeroer/compare/zeroer-core@1.1.0...zeroer-core@1.1.1) (2020-07-13)
+
+
+### Bug Fixes
+
+* eslint ([8ff9505](https://github.com/zq0904/zeroer/commit/8ff950542b5d82891989f0abfc6d15d829e6a7bc))
+* parse key 与 val 中包括=引发的问题 ([d641c30](https://github.com/zq0904/zeroer/commit/d641c30f9e416f4ac9fb2006078dab5829c96ea1))
+* 类型重载修复 ([f883dc5](https://github.com/zq0904/zeroer/commit/f883dc5cc1025b4a84635258c19e5dc5e0b2b030))
+
+
+
+
+
 # [1.1.0](https://github.com/zq0904/zeroer/compare/zeroer-core@1.0.0...zeroer-core@1.1.0) (2020-05-05)
 
 
