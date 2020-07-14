@@ -9,6 +9,7 @@ const safeLoad = <T extends obj = obj>(path: string, defaultVal: obj = { default
   try {
     return require(path) as T
   } catch (err) {
+    console.error(err)
     return defaultVal as T
   }
 }
