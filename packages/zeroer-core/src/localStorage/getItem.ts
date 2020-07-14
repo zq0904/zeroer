@@ -5,21 +5,20 @@ import { PREFIX, getCookieSessionTime } from './lib'
  * @example
  * getItem('a')
  */
-const getItem = (name: string) => {
+const getItem = <T = any>(name: string): T | null => {
   const res = localStorage.getItem(PREFIX + name)
-  if (res) {
-    try {
-      const { v, e } = JSON.parse(res)
-      // 在当前浏览器进程中 || 未过期的
-      if ((e < 0 && e === getCookieSessionTime()) || e > Date.now()) {
-        return v
-      }
-      return null
-    } catch (err) {
-      return null
+  if (res === null) return null
+  try {
+    const { v, e } = JSON.parse(res)
+    // 在当前浏览器进程中 || 未过期的
+    if ((e < 0 && e === getCookieSessionTime()) || e > Date.now()) {
+      return v
     }
+    return null
+  } catch (err) {
+    console.error(err)
+    return null
   }
-  return null
 }
 
 export default getItem
