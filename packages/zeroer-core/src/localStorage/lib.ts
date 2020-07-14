@@ -36,7 +36,9 @@ const removeExpired = () => {
         if ((e < 0 && e !== getCookieSessionTime()) || (e > 0 && e <= now)) {
           localStorage.removeItem(name)
         }
-      } catch (err) {}
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
 }

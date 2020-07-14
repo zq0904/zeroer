@@ -7,7 +7,8 @@ const isTrace = () => {
     sessionStorage.setItem(TEST, TEST)
     sessionStorage.removeItem(TEST)
     return false
-  } catch (e) {
+  } catch (err) {
+    console.error(err)
     return true
   }
 }
