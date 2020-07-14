@@ -12,14 +12,18 @@ import { Days } from '../types'
 const setItem = (name: string, val: any, days: Days | false = false) => {
   removeExpired()
   // 如果设置的过期时间 本身就已经过期 则return掉
-  if (days !== false && toTimeStamp(days) <= Date.now()) return
+  if (days !== false && toTimeStamp(days) <= Date.now()) return false
   try {
     const item = JSON.stringify({
       v: val, // 值
       e: days === false ? getCookieSessionTime() : toTimeStamp(days), // 负数表随浏览器进程 正数表过期时间
     })
     localStorage.setItem(PREFIX + name, item)
-  } catch (err) {}
+    return true
+  } catch (err) {
+    console.error(err)
+    return false
+  }
 }
 
 export default setItem
