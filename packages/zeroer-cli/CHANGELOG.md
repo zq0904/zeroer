@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.7...zeroer-cli@0.0.8) (2020-07-16)
+
+
+### Bug Fixes
+
+* 添加解析失败的err 提示 ([d37f2f2](https://github.com/zq0904/zeroer/commit/d37f2f29591313c321849a0eb97902824ea36c19))
+
+
+
+
+
 ## [0.0.7](https://github.com/zq0904/zeroer/compare/zeroer-cli@0.0.6...zeroer-cli@0.0.7) (2020-07-13)
 
 

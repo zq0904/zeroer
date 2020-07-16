@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/zq0904/zeroer/compare/zeroer-core@1.1.1...zeroer-core@1.1.2) (2020-07-16)
+
+
+### Bug Fixes
+
+* 严谨的判断 ([b886503](https://github.com/zq0904/zeroer/commit/b886503f64355452b0b5a0a6f1cd0749d149a78f))
+* 修改compose类型 ([4c0a7aa](https://github.com/zq0904/zeroer/commit/4c0a7aa1542d5fb00254010f60ceda9b9165f9a2))
+* 添加err提示 ([3af36a1](https://github.com/zq0904/zeroer/commit/3af36a1f2aeba8d0acb2eac3bcb6e87babd73b43))
+* 添加泛型 ([9c0123a](https://github.com/zq0904/zeroer/commit/9c0123a216800ed28f6430230ea6ce6e083451ff))
+
+
+### Features
+
+* 设置成功返回true 失败返回false ([06e6754](https://github.com/zq0904/zeroer/commit/06e6754f68569a27038d31d2c5aa87c1716699fd))
+
+
+
+
+
 ## [1.1.1](https://github.com/zq0904/zeroer/compare/zeroer-core@1.1.0...zeroer-core@1.1.1) (2020-07-13)
 
 
