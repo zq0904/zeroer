@@ -2,6 +2,11 @@ import isObject from './isObject'
 import isArray from './isArray'
 import isUndefined from './isUndefined'
 
+interface ObjectExtend {
+  <T, U>(target: T, source: U): T & U;
+  <T, U, V>(target: T, source1: U, source2: V): T & U & V;
+  <T, U, V, W>(target: T, source1: U, source2: V, source3: W): T & U & V & W;
+}
 /**
  * 将多个对象的内容合并到目标对象中
  * @example
@@ -10,7 +15,7 @@ import isUndefined from './isUndefined'
  * extend(a, b) // { obj: {b: 2}, arr: (3) [3, 4, 5], v: 2 }
  * extend(true, a, b) // 深度合并对象 { obj: {a: 1, b: 2}, arr: (3) [3, 4, 5], v: 2 }
  */
-const extend = (...args: any[]) => {
+const extend: ObjectExtend = (...args: any[]) => {
   isObject(args[0]) ? args.unshift(false) : args[0] = !!args[0] // 统一入参
   const [deep, target, ...other] = args
   let targetVal, otherVal
