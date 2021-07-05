@@ -5,6 +5,7 @@ const globby = require('./globby')
 const urlJoin = require('./url-join')
 const ejs = require('./ejs')
 const tapable = require('./tapable')
+const babel = require('./babel')
 
 const paths = require('./paths')
 const clearConsole = require('./clearConsole')
@@ -27,6 +28,7 @@ module.exports = {
   urlJoin,
   ejs,
   tapable,
+  babel,
   ...require('./execa'),
   ...require('./log'),
   paths,
